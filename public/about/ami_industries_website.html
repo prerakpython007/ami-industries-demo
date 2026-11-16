@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMI Industries — Industrial Ovens, Dryers & Furnaces | Since 1980</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C8102E;
+  --red-dark:#9B0C22;
+  --red-light:#E8192E;
+  --black:#0A0A0A;
+  --charcoal:#1A1A1A;
+  --dark:#111111;
+  --grey-dark:#2A2A2A;
+  --grey:#555555;
+  --grey-mid:#888888;
+  --grey-light:#BBBBBB;
+  --grey-pale:#E8E8E8;
+  --white:#FAFAFA;
+  --pure-white:#FFFFFF;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--charcoal);}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px;}
+
+/* ─── NAV ─── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,10,10,0.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,16,46,0.3);
+  transition:all 0.3s;
+}
+.nav-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:70px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;text-decoration:none;
+  cursor:pointer;
+}
+.nav-logo-icon{
+  width:44px;height:44px;background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-weight:900;font-size:18px;
+  color:white;letter-spacing:1px;
+  clip-path:polygon(0 0,90% 0,100% 10%,100% 100%,10% 100%,0 90%);
+}
+.nav-logo-text{
+  font-family:var(--font-head);font-weight:800;font-size:22px;
+  color:var(--white);letter-spacing:2px;line-height:1;
+}
+.nav-logo-sub{font-size:10px;color:var(--grey-mid);letter-spacing:3px;text-transform:uppercase;font-weight:400;}
+.nav-links{display:flex;align-items:center;gap:0;}
+.nav-link{
+  position:relative;padding:0 16px;height:70px;
+  display:flex;align-items:center;
+  font-family:var(--font-head);font-weight:600;font-size:13px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--grey-light);text-decoration:none;
+  cursor:pointer;border:none;background:none;
+  transition:color 0.2s;
+}
+.nav-link:hover,.nav-link.active{color:var(--white);}
+.nav-link::after{
+  content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;
+  background:var(--red);transform:scaleX(0);transition:transform 0.2s;
+}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1);}
+.nav-cta{
+  background:var(--red);color:white;
+  padding:10px 22px;font-family:var(--font-head);font-weight:700;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;clip-path:polygon(0 0,95% 0,100% 20%,100% 100%,5% 100%,0 80%);
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--red-light);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.nav-hamburger span{width:24px;height:2px;background:var(--white);transition:all 0.3s;}
+
+/* ─── DROPDOWN ─── */
+.nav-item{position:relative;}
+.nav-dropdown{
+  position:absolute;top:70px;left:0;min-width:240px;
+  background:rgba(10,10,10,0.98);border:1px solid rgba(200,16,46,0.2);
+  border-top:2px solid var(--red);
+  opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:all 0.2s;z-index:100;
+}
+.nav-item:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown a{
+  display:block;padding:12px 20px;color:var(--grey-light);
+  font-family:var(--font-body);font-size:13px;font-weight:500;
+  text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.05);
+  transition:all 0.15s;
+}
+.nav-dropdown a:hover{color:var(--white);background:rgba(200,16,46,0.1);padding-left:28px;}
+
+/* ─── PAGES ─── */
+.page{display:none;min-height:100vh;padding-top:70px;}
+.page.active{display:block;}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;overflow:hidden;
+  background:var(--black);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(135deg,rgba(200,16,46,0.15) 0%,transparent 50%),
+    linear-gradient(225deg,rgba(200,16,46,0.08) 0%,transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,16,46,0.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,16,46,0.08) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);
+}
+.hero-content{
+  position:relative;z-index:2;max-width:1400px;margin:0 auto;
+  padding:0 2rem;width:100%;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:24px;
+}
+.hero-eyebrow-line{width:40px;height:2px;background:var(--red);}
+.hero-eyebrow-text{
+  font-family:var(--font-head);font-size:12px;font-weight:600;
+  letter-spacing:4px;text-transform:uppercase;color:var(--red);
+}
+.hero-title{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(56px,8vw,120px);line-height:0.9;
+  text-transform:uppercase;letter-spacing:-1px;
+  margin-bottom:12px;
+}
+.hero-title-line1{color:var(--white);display:block;}
+.hero-title-line2{
+  color:transparent;display:block;
+  -webkit-text-stroke:2px var(--red);
+}
+.hero-title-line3{color:var(--white);display:block;font-size:clamp(32px,5vw,72px);}
+.hero-sub{
+  font-size:16px;color:var(--grey-light);font-weight:300;
+  max-width:520px;line-height:1.7;margin:28px 0 48px;
+  font-style:italic;
+}
+.hero-sub strong{color:var(--white);font-weight:600;font-style:normal;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--red);color:white;border:none;
+  padding:16px 36px;font-family:var(--font-head);font-weight:700;
+  font-size:14px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;clip-path:polygon(0 0,94% 0,100% 18%,100% 100%,6% 100%,0 82%);
+  transition:all 0.2s;
+}
+.btn-primary:hover{background:var(--red-light);transform:translateY(-2px);}
+.btn-outline{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,0.3);
+  padding:15px 36px;font-family:var(--font-head);font-weight:700;
+  font-size:14px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s;
+}
+.btn-outline:hover{border-color:var(--red);color:var(--red);}
+.hero-stats{
+  position:absolute;bottom:60px;right:2rem;
+  display:flex;gap:40px;
+}
+.hero-stat{text-align:center;}
+.hero-stat-num{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(36px,4vw,56px);color:var(--white);
+  line-height:1;
+}
+.hero-stat-num span{color:var(--red);}
+.hero-stat-label{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--grey-mid);font-weight:500;margin-top:4px;
+}
+.hero-badge{
+  position:absolute;bottom:60px;left:2rem;
+  background:rgba(200,16,46,0.15);border:1px solid rgba(200,16,46,0.3);
+  padding:16px 24px;
+}
+.hero-badge-text{
+  font-family:var(--font-head);font-size:13px;letter-spacing:2px;
+  color:var(--white);text-transform:uppercase;font-weight:700;
+}
+.hero-badge-sub{font-size:11px;color:var(--grey-mid);letter-spacing:1px;margin-top:4px;}
+/* 3D rotating cube decoration */
+.hero-cube{
+  position:absolute;right:8%;top:50%;transform:translateY(-50%);
+  width:280px;height:280px;perspective:600px;
+}
+.cube-inner{
+  width:100%;height:100%;position:relative;
+  transform-style:preserve-3d;
+  animation:rotateCube 20s infinite linear;
+}
+@keyframes rotateCube{
+  0%{transform:rotateX(15deg) rotateY(0deg);}
+  100%{transform:rotateX(15deg) rotateY(360deg);}
+}
+.cube-face{
+  position:absolute;width:100%;height:100%;
+  border:1px solid rgba(200,16,46,0.4);
+  display:flex;align-items:center;justify-content:center;
+}
+.cube-face-front{transform:translateZ(140px);background:rgba(200,16,46,0.06);}
+.cube-face-back{transform:rotateY(180deg) translateZ(140px);background:rgba(200,16,46,0.04);}
+.cube-face-left{transform:rotateY(-90deg) translateZ(140px);background:rgba(200,16,46,0.04);}
+.cube-face-right{transform:rotateY(90deg) translateZ(140px);background:rgba(200,16,46,0.06);}
+.cube-face-top{transform:rotateX(90deg) translateZ(140px);background:rgba(200,16,46,0.08);}
+.cube-face-bottom{transform:rotateX(-90deg) translateZ(140px);background:rgba(200,16,46,0.04);}
+.cube-content{
+  font-family:var(--font-head);font-weight:900;font-size:11px;
+  letter-spacing:3px;color:var(--red);text-transform:uppercase;text-align:center;
+}
+
+/* ─── SECTION COMMONS ─── */
+.section{padding:100px 2rem;}
+.section-inner{max-width:1400px;margin:0 auto;}
+.section-eyebrow{
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.section-line{width:40px;height:2px;background:var(--red);}
+.section-tag{
+  font-family:var(--font-head);font-size:11px;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;color:var(--red);
+}
+.section-title{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(36px,5vw,60px);text-transform:uppercase;
+  line-height:0.95;letter-spacing:-0.5px;color:var(--white);
+  margin-bottom:24px;
+}
+.section-title em{color:var(--red);font-style:normal;}
+.section-body{
+  font-size:16px;color:var(--grey-light);font-weight:300;
+  line-height:1.8;max-width:680px;
+}
+
+/* ─── STATS BAR ─── */
+.stats-bar{
+  background:var(--red);padding:40px 2rem;
+}
+.stats-bar-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+.stat-item{text-align:center;padding:0 20px;position:relative;}
+.stat-item:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:20%;height:60%;
+  width:1px;background:rgba(255,255,255,0.3);
+}
+.stat-num{
+  font-family:var(--font-head);font-weight:900;font-size:clamp(40px,4vw,60px);
+  color:white;line-height:1;
+}
+.stat-label{
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.75);font-weight:500;margin-top:8px;
+}
+
+/* ─── PRODUCT GRID ─── */
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:60px;
+}
+.product-card{
+  background:var(--charcoal);position:relative;overflow:hidden;
+  cursor:pointer;transition:all 0.3s;aspect-ratio:4/3;
+}
+.product-card:hover{transform:scale(1.02);z-index:2;}
+.product-card-img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(60%) brightness(0.5);
+  transition:all 0.4s;
+}
+.product-card:hover .product-card-img{filter:grayscale(0%) brightness(0.65);}
+.product-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.2) 60%,transparent 100%);
+  padding:24px;display:flex;flex-direction:column;justify-content:flex-end;
+}
+.product-card-tag{
+  font-family:var(--font-head);font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:8px;
+}
+.product-card-name{
+  font-family:var(--font-head);font-weight:800;font-size:clamp(18px,2vw,24px);
+  text-transform:uppercase;letter-spacing:1px;color:white;line-height:1.1;
+}
+.product-card-sub{font-size:12px;color:var(--grey-light);margin-top:6px;}
+.product-card-arrow{
+  position:absolute;top:20px;right:20px;width:36px;height:36px;
+  background:var(--red);display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.3s;font-size:18px;color:white;
+}
+.product-card:hover .product-card-arrow{opacity:1;}
+/* Featured card (spans 2) */
+.product-card-featured{grid-column:span 2;}
+
+/* ─── WHY CHOOSE TABLE ─── */
+.comparison-table{margin-top:60px;overflow-x:auto;}
+.comparison-table table{width:100%;border-collapse:collapse;}
+.comparison-table th{
+  padding:16px 20px;text-align:left;
+  font-family:var(--font-head);font-weight:700;font-size:13px;
+  letter-spacing:2px;text-transform:uppercase;
+}
+.comparison-table th:first-child{background:transparent;color:var(--grey-mid);}
+.comparison-table th.ami-col{background:var(--red);color:white;font-size:14px;}
+.comparison-table th.other-col{background:var(--grey-dark);color:var(--grey-light);}
+.comparison-table td{
+  padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:14px;
+}
+.comparison-table td:first-child{color:var(--grey-mid);font-weight:500;}
+.comparison-table td.ami-val{color:var(--white);background:rgba(200,16,46,0.05);}
+.comparison-table td.other-val{color:var(--grey-mid);background:rgba(255,255,255,0.02);}
+.check{color:#4CAF50;font-size:16px;}
+.cross{color:var(--grey);}
+
+/* ─── INDUSTRIES GRID ─── */
+.industries-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-top:60px;
+}
+.industry-card{
+  background:var(--charcoal);padding:30px 24px;
+  border-left:2px solid transparent;
+  transition:all 0.25s;cursor:pointer;
+}
+.industry-card:hover{border-left-color:var(--red);background:var(--grey-dark);}
+.industry-icon{font-size:28px;margin-bottom:16px;display:block;}
+.industry-name{
+  font-family:var(--font-head);font-weight:700;font-size:15px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);
+  margin-bottom:8px;
+}
+.industry-desc{font-size:12px;color:var(--grey-mid);line-height:1.6;}
+
+/* ─── CLIENTS ─── */
+.clients-marquee{overflow:hidden;padding:40px 0;margin-top:40px;}
+.clients-track{
+  display:flex;gap:60px;width:max-content;
+  animation:marquee 40s linear infinite;
+}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.client-name{
+  font-family:var(--font-head);font-weight:700;font-size:clamp(14px,1.5vw,18px);
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--grey-mid);white-space:nowrap;
+  transition:color 0.2s;
+}
+.clients-track:hover{animation-play-state:paused;}
+.client-name:hover{color:var(--white);}
+
+/* ─── APPLICATIONS ─── */
+.applications-accordion{margin-top:60px;}
+.acc-item{border-bottom:1px solid rgba(255,255,255,0.08);}
+.acc-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0;cursor:pointer;
+}
+.acc-title{
+  font-family:var(--font-head);font-weight:700;font-size:18px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);
+  display:flex;align-items:center;gap:16px;
+}
+.acc-num{
+  font-family:var(--font-head);font-weight:900;font-size:32px;
+  color:var(--red);opacity:0.4;line-height:1;
+}
+.acc-icon{
+  width:32px;height:32px;border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--white);transition:all 0.2s;
+  flex-shrink:0;
+}
+.acc-item.open .acc-icon{background:var(--red);border-color:var(--red);transform:rotate(45deg);}
+.acc-body{display:none;padding:0 0 24px 60px;}
+.acc-item.open .acc-body{display:block;}
+.acc-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.acc-tag{
+  background:rgba(200,16,46,0.1);border:1px solid rgba(200,16,46,0.25);
+  padding:6px 14px;font-size:12px;font-weight:500;color:var(--grey-light);
+  letter-spacing:0.5px;
+}
+
+/* ─── CONTACT ─── */
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;margin-top:60px;
+}
+.contact-info{display:flex;flex-direction:column;gap:32px;}
+.contact-block{}
+.contact-block-label{
+  font-family:var(--font-head);font-size:11px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--red);font-weight:700;
+  margin-bottom:12px;
+}
+.contact-block-title{
+  font-family:var(--font-head);font-size:18px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);
+  margin-bottom:10px;
+}
+.contact-block-text{font-size:14px;color:var(--grey-light);line-height:1.8;}
+.contact-block-link{color:var(--red);text-decoration:none;}
+.contact-block-link:hover{text-decoration:underline;}
+.contact-form{background:var(--charcoal);padding:40px;}
+.form-group{margin-bottom:24px;}
+.form-label{
+  display:block;font-family:var(--font-head);font-size:11px;
+  letter-spacing:3px;text-transform:uppercase;color:var(--grey-mid);
+  font-weight:600;margin-bottom:10px;
+}
+.form-input, .form-select, .form-textarea{
+  width:100%;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--white);padding:14px 16px;
+  font-family:var(--font-body);font-size:15px;
+  transition:border-color 0.2s;outline:none;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--red);}
+.form-textarea{resize:vertical;min-height:120px;}
+.form-select option{background:var(--charcoal);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+/* ─── ABOUT ─── */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-timeline{margin-top:60px;}
+.timeline-item{
+  display:grid;grid-template-columns:80px 1fr;gap:24px;
+  padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.timeline-year{
+  font-family:var(--font-head);font-weight:900;font-size:26px;
+  color:var(--red);line-height:1;
+}
+.timeline-content-title{
+  font-family:var(--font-head);font-weight:700;font-size:16px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:6px;
+}
+.timeline-content-text{font-size:14px;color:var(--grey-light);line-height:1.7;}
+
+/* ─── TEAM ─── */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
+.team-card{background:var(--charcoal);padding:40px 32px;text-align:center;position:relative;overflow:hidden;}
+.team-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);
+  transform:scaleX(0);transition:transform 0.3s;
+}
+.team-card:hover::before{transform:scaleX(1);}
+.team-avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--grey-dark);margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-weight:900;font-size:24px;color:var(--red);
+  border:2px solid rgba(200,16,46,0.3);
+}
+.team-name{
+  font-family:var(--font-head);font-weight:800;font-size:20px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);
+  margin-bottom:4px;
+}
+.team-role{font-size:12px;color:var(--red);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:16px;}
+.team-desc{font-size:13px;color:var(--grey-light);line-height:1.7;}
+
+/* ─── VALUES ─── */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.value-card{
+  padding:32px;border:1px solid rgba(255,255,255,0.08);
+  transition:border-color 0.2s;
+}
+.value-card:hover{border-color:var(--red);}
+.value-icon{font-size:32px;margin-bottom:16px;}
+.value-name{
+  font-family:var(--font-head);font-weight:700;font-size:18px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);
+  margin-bottom:10px;
+}
+.value-desc{font-size:14px;color:var(--grey-light);line-height:1.7;}
+
+/* ─── PRODUCTS PAGE ─── */
+.products-filter{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:48px;margin-bottom:40px;
+}
+.filter-btn{
+  padding:10px 20px;font-family:var(--font-head);font-weight:600;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  background:transparent;border:1px solid rgba(255,255,255,0.15);
+  color:var(--grey-light);cursor:pointer;transition:all 0.2s;
+}
+.filter-btn:hover,.filter-btn.active{background:var(--red);border-color:var(--red);color:white;}
+.products-list{display:flex;flex-direction:column;gap:2px;}
+.product-row{
+  display:grid;grid-template-columns:60px 1fr auto;
+  gap:32px;align-items:center;
+  background:var(--charcoal);padding:28px 32px;
+  cursor:pointer;transition:background 0.2s;border-left:3px solid transparent;
+}
+.product-row:hover{background:var(--grey-dark);border-left-color:var(--red);}
+.product-row-num{
+  font-family:var(--font-head);font-weight:900;font-size:32px;
+  color:var(--red);opacity:0.3;line-height:1;
+}
+.product-row-info{}
+.product-row-cat{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--grey-mid);font-weight:600;margin-bottom:6px;
+}
+.product-row-name{
+  font-family:var(--font-head);font-weight:800;font-size:22px;
+  text-transform:uppercase;letter-spacing:0.5px;color:var(--white);
+}
+.product-row-desc{font-size:13px;color:var(--grey-light);margin-top:6px;max-width:600px;}
+.product-row-specs{text-align:right;min-width:160px;}
+.product-spec{
+  font-size:12px;color:var(--grey-mid);margin-bottom:4px;
+}
+.product-spec strong{color:var(--white);display:block;font-size:14px;font-weight:600;}
+
+/* ─── FAQ ─── */
+.faq-list{margin-top:60px;display:flex;flex-direction:column;gap:2px;}
+.faq-item{background:var(--charcoal);}
+.faq-q{
+  padding:22px 28px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--font-head);font-weight:600;font-size:16px;
+  color:var(--white);letter-spacing:0.3px;
+}
+.faq-q-icon{
+  width:28px;height:28px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(200,16,46,0.15);color:var(--red);
+  font-size:18px;transition:transform 0.2s;
+}
+.faq-item.open .faq-q-icon{transform:rotate(45deg);}
+.faq-a{
+  display:none;padding:0 28px 22px;
+  font-size:14px;color:var(--grey-light);line-height:1.8;
+}
+.faq-item.open .faq-a{display:block;}
+
+/* ─── WORLD MAP SECTION ─── */
+.world-section{
+  background:var(--charcoal);padding:80px 2rem;
+  overflow:hidden;position:relative;
+}
+.world-dots{
+  position:absolute;inset:0;opacity:0.04;
+  background-image:radial-gradient(circle,white 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.world-inner{max-width:1400px;margin:0 auto;}
+.world-map-container{
+  width:100%;max-width:900px;margin:60px auto 0;
+  position:relative;
+}
+.world-map-svg{width:100%;opacity:0.3;filter:brightness(0.8);}
+.location-pin{
+  position:absolute;display:flex;flex-direction:column;align-items:center;
+  cursor:pointer;transition:transform 0.2s;
+}
+.location-pin:hover{transform:scale(1.2);}
+.pin-dot{
+  width:10px;height:10px;background:var(--red);border-radius:50%;
+  box-shadow:0 0 0 4px rgba(200,16,46,0.2);
+  animation:ping 2s infinite;
+}
+@keyframes ping{
+  0%{box-shadow:0 0 0 0 rgba(200,16,46,0.4);}
+  100%{box-shadow:0 0 0 12px rgba(200,16,46,0);}
+}
+.pin-label{
+  font-size:9px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--grey-mid);font-weight:600;margin-top:4px;white-space:nowrap;
+}
+
+/* ─── CERTIFICATIONS ─── */
+.cert-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;margin-top:60px;
+}
+.cert-card{
+  background:var(--charcoal);padding:40px;text-align:center;
+  border:1px solid rgba(255,255,255,0.06);
+}
+.cert-icon{
+  width:80px;height:80px;background:rgba(200,16,46,0.1);
+  border:1px solid rgba(200,16,46,0.3);margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;font-size:32px;
+}
+.cert-name{
+  font-family:var(--font-head);font-weight:700;font-size:18px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:8px;
+}
+.cert-desc{font-size:13px;color:var(--grey-mid);line-height:1.6;}
+
+/* ─── FOOTER ─── */
+footer{background:var(--charcoal);border-top:1px solid rgba(200,16,46,0.3);}
+.footer-top{
+  max-width:1400px;margin:0 auto;padding:80px 2rem 60px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;
+}
+.footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.footer-tagline{
+  font-family:var(--font-head);font-size:18px;font-weight:700;
+  color:var(--white);margin-bottom:12px;line-height:1.3;
+  font-style:italic;
+}
+.footer-desc{font-size:14px;color:var(--grey-mid);line-height:1.8;max-width:300px;}
+.footer-col-title{
+  font-family:var(--font-head);font-weight:700;font-size:13px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--white);
+  margin-bottom:24px;
+}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-link{
+  font-size:14px;color:var(--grey-mid);text-decoration:none;cursor:pointer;
+  transition:color 0.2s;
+}
+.footer-link:hover{color:var(--red);}
+.footer-contact-item{
+  display:flex;gap:12px;margin-bottom:16px;font-size:13px;color:var(--grey-mid);
+}
+.footer-contact-icon{color:var(--red);flex-shrink:0;margin-top:2px;}
+.footer-bottom{
+  max-width:1400px;margin:0 auto;padding:24px 2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-copyright{font-size:12px;color:var(--grey);letter-spacing:1px;}
+.footer-trademark{font-size:12px;color:var(--grey);letter-spacing:0.5px;}
+.footer-bottom-links{display:flex;gap:24px;}
+.footer-bottom-link{font-size:12px;color:var(--grey);cursor:pointer;transition:color 0.2s;}
+.footer-bottom-link:hover{color:var(--white);}
+
+/* ─── SCROLL INDICATOR ─── */
+.scroll-progress{
+  position:fixed;top:70px;left:0;right:0;height:3px;
+  background:rgba(200,16,46,0.2);z-index:999;
+}
+.scroll-bar{
+  height:100%;background:var(--red);width:0%;transition:width 0.1s;
+}
+
+/* ─── MISC DETAILS ─── */
+.red-line{width:40px;height:3px;background:var(--red);margin-bottom:24px;}
+.tag-red{
+  display:inline-block;background:var(--red);
+  color:white;font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;font-family:var(--font-head);font-weight:700;
+  padding:4px 12px;margin-bottom:16px;
+}
+.divider{
+  border:none;border-top:1px solid rgba(255,255,255,0.08);
+  margin:60px 0;
+}
+
+/* ─── PAGE HERO (inner pages) ─── */
+.page-hero{
+  background:var(--charcoal);padding:80px 2rem 60px;
+  border-bottom:1px solid rgba(200,16,46,0.2);
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--red);
+}
+.page-hero-inner{max-width:1400px;margin:0 auto;}
+.page-hero-title{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(48px,6vw,80px);text-transform:uppercase;
+  letter-spacing:-1px;color:var(--white);line-height:0.9;
+}
+.page-hero-title em{color:var(--red);font-style:normal;}
+.page-hero-sub{
+  font-size:16px;color:var(--grey-light);max-width:600px;
+  margin-top:20px;line-height:1.7;font-weight:300;
+}
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--grey-mid);letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:24px;
+}
+.breadcrumb span{cursor:pointer;transition:color 0.2s;}
+.breadcrumb span:hover{color:var(--red);}
+.breadcrumb-sep{color:var(--red);}
+
+/* ─── PHOTO GALLERY ─── */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:4px;margin-top:60px;
+}
+.gallery-item{
+  overflow:hidden;cursor:pointer;position:relative;
+  background:var(--charcoal);
+}
+.gallery-item:nth-child(4n+1){grid-column:span 2;grid-row:span 2;}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(30%) brightness(0.7);
+  transition:all 0.4s;
+}
+.gallery-item:hover img{filter:grayscale(0%) brightness(0.9);transform:scale(1.05);}
+.gallery-item-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+  padding:20px 16px 12px;
+  font-family:var(--font-head);font-size:12px;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,0.6);
+}
+
+/* ─── WHY CHOOSE FEATURES ─── */
+.features-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2px;margin-top:60px;
+}
+.feature-block{
+  background:var(--charcoal);padding:40px;
+  display:flex;gap:24px;
+}
+.feature-block:hover{background:var(--grey-dark);}
+.feature-num{
+  font-family:var(--font-head);font-weight:900;font-size:48px;
+  color:var(--red);opacity:0.25;line-height:1;flex-shrink:0;width:56px;
+}
+.feature-content{}
+.feature-title{
+  font-family:var(--font-head);font-weight:700;font-size:18px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:10px;
+}
+.feature-desc{font-size:14px;color:var(--grey-light);line-height:1.7;}
+.feature-detail{
+  margin-top:12px;font-size:12px;color:var(--grey-mid);
+  border-left:2px solid var(--red);padding-left:12px;
+}
+
+/* ─── MOBILE ─── */
+@media(max-width:1100px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .hero-cube{display:none;}
+  .hero-stats{flex-direction:column;gap:20px;position:relative;bottom:auto;right:auto;margin-top:48px;}
+  .hero-badge{position:relative;bottom:auto;left:auto;margin-top:16px;display:inline-block;}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
+  .products-grid{grid-template-columns:1fr 1fr;}
+  .product-card-featured{grid-column:span 1;}
+  .industries-grid{grid-template-columns:repeat(2,1fr);}
+  .about-layout{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .features-grid{grid-template-columns:1fr;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .cert-grid{grid-template-columns:1fr 1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-item:nth-child(4n+1){grid-column:span 1;grid-row:span 1;}
+}
+@media(max-width:600px){
+  .section{padding:60px 1.5rem;}
+  .stats-bar-inner{grid-template-columns:1fr 1fr;gap:20px;}
+  .products-grid{grid-template-columns:1fr;}
+  .industries-grid{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr;}
+  .values-grid{grid-template-columns:1fr;}
+  .cert-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .comparison-table{font-size:12px;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-title{font-size:clamp(40px,10vw,80px);}
+}
+
+/* Mobile nav */
+.mobile-nav{
+  display:none;position:fixed;top:70px;left:0;right:0;bottom:0;
+  background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);
+  z-index:999;overflow-y:auto;padding:24px 2rem;
+}
+.mobile-nav.open{display:block;}
+.mobile-nav-link{
+  display:block;padding:18px 0;
+  font-family:var(--font-head);font-weight:700;font-size:20px;
+  text-transform:uppercase;letter-spacing:2px;color:var(--white);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
+}
+.mobile-nav-link:hover{color:var(--red);}
+
+/* Animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:all 0.7s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* Product detail panel */
+.product-detail{
+  display:none;position:fixed;top:0;right:0;bottom:0;width:500px;
+  background:var(--charcoal);z-index:2000;overflow-y:auto;
+  border-left:1px solid rgba(200,16,46,0.3);
+  box-shadow:-40px 0 80px rgba(0,0,0,0.6);
+  padding:40px;
+}
+.product-detail.open{display:block;}
+.pd-close{
+  position:absolute;top:20px;right:20px;
+  background:none;border:1px solid rgba(255,255,255,0.2);
+  color:var(--white);width:36px;height:36px;font-size:20px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.pd-close:hover{background:var(--red);border-color:var(--red);}
+.pd-cat{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);font-weight:700;margin:40px 0 12px;
+}
+.pd-title{
+  font-family:var(--font-head);font-weight:900;font-size:32px;
+  text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:20px;
+}
+.pd-body{font-size:14px;color:var(--grey-light);line-height:1.8;margin-bottom:24px;}
+.pd-specs-title{
+  font-family:var(--font-head);font-weight:700;font-size:14px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--white);
+  margin:28px 0 16px;
+}
+.pd-spec-row{
+  display:flex;justify-content:space-between;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:13px;
+}
+.pd-spec-key{color:var(--grey-mid);}
+.pd-spec-val{color:var(--white);font-weight:500;}
+.pd-features-list{list-style:none;margin-top:12px;}
+.pd-features-list li{
+  padding:8px 0;font-size:13px;color:var(--grey-light);
+  padding-left:20px;position:relative;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.pd-features-list li::before{
+  content:'▸';position:absolute;left:0;color:var(--red);font-size:12px;
+}
+.pd-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1999;
+}
+.pd-overlay.open{display:block;}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress"><div class="scroll-bar" id="scrollBar"></div></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo-icon">AMI</div>
+      <div>
+        <div class="nav-logo-text">AMI INDUSTRIES</div>
+        <div class="nav-logo-sub">Est. 1980 · Mumbai</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <div class="nav-item">
+        <button class="nav-link active" onclick="showPage('home')">Home</button>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('about')">About Us ▾</button>
+        <div class="nav-dropdown">
+          <a onclick="showPage('about');scrollToSec('profile')">Profile</a>
+          <a onclick="showPage('about');scrollToSec('mission')">Mission & Vision</a>
+          <a onclick="showPage('about');scrollToSec('team')">Team & Leadership</a>
+          <a onclick="showPage('about');scrollToSec('factory')">Factory & Workspace</a>
+          <a onclick="showPage('about');scrollToSec('certs')">Certifications</a>
+          <a onclick="showPage('about');scrollToSec('events')">Events Calendar</a>
+          <a onclick="showPage('about');scrollToSec('faq')">FAQs</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('products')">Products ▾</button>
+        <div class="nav-dropdown">
+          <a onclick="showPage('products')">All Products</a>
+          <a onclick="showPage('products');filterProducts('ovens')">Industrial Ovens</a>
+          <a onclick="showPage('products');filterProducts('dryers')">Tray Dryers</a>
+          <a onclick="showPage('products');filterProducts('furnaces')">Furnaces</a>
+          <a onclick="showPage('products');filterProducts('electrode')">Electrode Ovens</a>
+          <a onclick="showPage('products');filterProducts('painting')">Painting Booths</a>
+          <a onclick="showPage('products');filterProducts('conveyor')">Conveyorised Plants</a>
+          <a onclick="showPage('products');filterProducts('turnkey')">Turnkey Projects</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('applications')">Applications</button>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('why')">Why AMI</button>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('gallery')">Gallery</button>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('clients')">Clients</button>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" onclick="showPage('contact')">Contact</button>
+      </div>
+      <button class="nav-cta" onclick="showPage('contact')">Get a Quote</button>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-link" onclick="showPage('home');toggleMobileNav()">Home</div>
+  <div class="mobile-nav-link" onclick="showPage('about');toggleMobileNav()">About Us</div>
+  <div class="mobile-nav-link" onclick="showPage('products');toggleMobileNav()">Products</div>
+  <div class="mobile-nav-link" onclick="showPage('applications');toggleMobileNav()">Applications</div>
+  <div class="mobile-nav-link" onclick="showPage('why');toggleMobileNav()">Why AMI</div>
+  <div class="mobile-nav-link" onclick="showPage('gallery');toggleMobileNav()">Gallery</div>
+  <div class="mobile-nav-link" onclick="showPage('clients');toggleMobileNav()">Clients</div>
+  <div class="mobile-nav-link" onclick="showPage('contact');toggleMobileNav()">Contact Us</div>
+</div>
+
+<!-- PRODUCT DETAIL PANEL -->
+<div class="pd-overlay" id="pdOverlay" onclick="closeProductDetail()"></div>
+<div class="product-detail" id="productDetail">
+  <button class="pd-close" onclick="closeProductDetail()">✕</button>
+  <div id="pdContent"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <div class="hero-eyebrow-text">India's Premier Manufacturer Since 1980</div>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line1">Heating</span>
+        <span class="hero-title-line2">Mastery.</span>
+        <span class="hero-title-line3">Built Different.</span>
+      </h1>
+      <p class="hero-sub">
+        <strong>AMI Industries</strong> — Engineering precision thermal solutions across 
+        Industrial Ovens, Dryers, Furnaces & Turnkey Painting Plants for India's most 
+        demanding industries. Where <strong>precision meets innovation.</strong>
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('products')">Explore Products</button>
+        <button class="btn-outline" onclick="showPage('contact')">Request a Quote</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">50<span>+</span></div>
+          <div class="hero-stat-label">Years of Mastery</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6500<span>+</span></div>
+          <div class="hero-stat-label">Installations</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">50<span>+</span></div>
+          <div class="hero-stat-label">MNC Clients</div>
+        </div>
+      </div>
+    </div>
+    <!-- 3D Cube -->
+    <div class="hero-cube">
+      <div class="cube-inner">
+        <div class="cube-face cube-face-front"><div class="cube-content">INDUSTRIAL<br>OVENS</div></div>
+        <div class="cube-face cube-face-back"><div class="cube-content">SINCE<br>1980</div></div>
+        <div class="cube-face cube-face-left"><div class="cube-content">MADE<br>IN INDIA</div></div>
+        <div class="cube-face cube-face-right"><div class="cube-content">50°C—<br>1150°C</div></div>
+        <div class="cube-face cube-face-top"><div class="cube-content">AMI</div></div>
+        <div class="cube-face cube-face-bottom"><div class="cube-content">QUALITY</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <div class="stat-num">6,500+</div>
+        <div class="stat-label">Ovens & Booths Manufactured</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">89%</div>
+        <div class="stat-label">Repeat Customer Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Manufacturing Facilities</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24+</div>
+        <div class="stat-label">Industries Served</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT INTRO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="about-layout">
+        <div class="fade-in">
+          <div class="section-eyebrow">
+            <div class="section-line"></div>
+            <div class="section-tag">Who We Are</div>
+          </div>
+          <h2 class="section-title">A Legacy of<br><em>Heating Excellence</em></h2>
+          <p class="section-body">
+            AMI Industries is one of India's most trusted manufacturers of Industrial Ovens, Dryers, Furnaces, 
+            and complete Heating Systems. Established in 1980 and headquartered in Mumbai, we have grown over 
+            four decades from a small manufacturing unit into a full-scale engineering powerhouse — 
+            operating across 4 facilities, led by the 3rd generation of the Panchal family.
+          </p>
+          <p class="section-body" style="margin-top:16px;">
+            For over 45 years, AMI Industries has been synonymous with precision engineering, robust 
+            construction, and customized heating solutions trusted by over 50 of India's most prominent MNCs.
+          </p>
+          <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="showPage('about')">Our Full Story</button>
+            <button class="btn-outline" onclick="showPage('why')">Why Choose AMI</button>
+          </div>
+        </div>
+        <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+          <div style="background:var(--charcoal);padding:32px;border-top:3px solid var(--red);">
+            <div style="font-family:var(--font-head);font-size:48px;font-weight:900;color:var(--white);">3rd</div>
+            <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--grey-mid);margin-top:4px;">Generation Leadership</div>
+          </div>
+          <div style="background:var(--red);padding:32px;">
+            <div style="font-family:var(--font-head);font-size:48px;font-weight:900;color:white;">50°–</div>
+            <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:4px;">1150°C Range</div>
+          </div>
+          <div style="background:var(--charcoal);padding:32px;grid-column:span 2;">
+            <div style="font-size:13px;color:var(--grey-light);line-height:1.8;">
+              <strong style="color:var(--white);font-family:var(--font-head);font-size:16px;text-transform:uppercase;letter-spacing:1px;">Tagline:</strong><br>
+              <em style="color:var(--red);font-size:18px;font-family:var(--font-head);font-weight:700;">"Heating Mastery: Where Precision Meets Innovation in Ovens"</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section" style="padding-top:0;">
+    <div class="section-inner">
+      <div class="section-eyebrow">
+        <div class="section-line"></div>
+        <div class="section-tag">Product Range</div>
+      </div>
+      <h2 class="section-title">Our Core<br><em>Products</em></h2>
+      <div class="products-grid">
+        <div class="product-card product-card-featured" onclick="openProduct('batch-oven')">
+          <img class="product-card-img" src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80" alt="Industrial Oven">
+          <div class="product-card-overlay">
+            <div class="product-card-tag">Category 1</div>
+            <div class="product-card-name">Industrial Batch<br>Type Ovens</div>
+            <div class="product-card-sub">50°C – 600°C · Electrical / Gas / IR / UV</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </div>
+        <div class="product-card" onclick="openProduct('tray-dryer')">
+          <img class="product-card-img" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80" alt="Tray Dryer">
+          <div class="product-card-overlay">
+            <div class="product-card-tag">Category 2</div>
+            <div class="product-card-name">Tray Dryers</div>
+            <div class="product-card-sub">4 – 192 Tray Capacity</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </div>
+        <div class="product-card" onclick="openProduct('electrode-oven')">
+          <img class="product-card-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Electrode Oven">
+          <div class="product-card-overlay">
+            <div class="product-card-tag">Category 3</div>
+            <div class="product-card-name">Electrode<br>Baking Ovens</div>
+            <div class="product-card-sub">Trusted by welding industry leaders</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </div>
+        <div class="product-card" onclick="openProduct('furnace')">
+          <img class="product-card-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Furnace">
+          <div class="product-card-overlay">
+            <div class="product-card-tag">Category 5</div>
+            <div class="product-card-name">Furnaces</div>
+            <div class="product-card-sub">Up to 1150°C · Box / Muffle / Annealing</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </div>
+        <div class="product-card product-card-featured" onclick="openProduct('painting-booth')">
+          <img class="product-card-img" src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cf?w=800&q=80" alt="Painting Booth">
+          <div class="product-card-overlay">
+            <div class="product-card-tag">Category 8</div>
+            <div class="product-card-name">Painting Booths &<br>Turnkey Plants</div>
+            <div class="product-card-sub">Water Wash · Powder Recovery · Full Automated Lines</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </div>
+        <div class="product-card" onclick="openProduct('conveyor-oven')">
+          <img class="product-card-img" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=80" alt="Conveyor">
+          <div class="product-card-overlay">
+            <div class="product-card-tag">Category 6</div>
+            <div class="product-card-name">Conveyorised<br>Ovens</div>
+            <div class="product-card-sub">Continuous production · Custom layouts</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <button class="btn-outline" onclick="showPage('products')">View All Products →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section" style="background:var(--charcoal);padding:80px 2rem;">
+    <div class="section-inner">
+      <div class="section-eyebrow">
+        <div class="section-line"></div>
+        <div class="section-tag">Industries We Serve</div>
+      </div>
+      <h2 class="section-title">Trusted Across<br><em>24+ Industries</em></h2>
+      <div class="industries-grid">
+        <div class="industry-card"><span class="industry-icon">🔥</span><div class="industry-name">Heat Treatment</div><div class="industry-desc">Hardening, tempering, annealing, stress relieving</div></div>
+        <div class="industry-card"><span class="industry-icon">🚗</span><div class="industry-name">Automobile</div><div class="industry-desc">Paint baking, powder coating, auto parts</div></div>
+        <div class="industry-card"><span class="industry-icon">💊</span><div class="industry-name">Pharmaceutical</div><div class="industry-desc">SS tray dryers, lab ovens, pharma-grade</div></div>
+        <div class="industry-card"><span class="industry-icon">⚡</span><div class="industry-name">Electrical</div><div class="industry-desc">Varnish baking, motor windings, transformers</div></div>
+        <div class="industry-card"><span class="industry-icon">🌾</span><div class="industry-name">Food & Spices</div><div class="industry-desc">Tray dryers, dehydration, bakery ovens</div></div>
+        <div class="industry-card"><span class="industry-icon">🛢️</span><div class="industry-name">Oil & Gas</div><div class="industry-desc">Pipeline preheating, electrode drying, PWHT</div></div>
+        <div class="industry-card"><span class="industry-icon">🏭</span><div class="industry-name">Foundry</div><div class="industry-desc">Sand core drying, die preheating, casting</div></div>
+        <div class="industry-card"><span class="industry-icon">🎨</span><div class="industry-name">Paint & Coating</div><div class="industry-desc">Turnkey painting lines, powder coating</div></div>
+        <div class="industry-card"><span class="industry-icon">⚗️</span><div class="industry-name">Chemical</div><div class="industry-desc">Drying, curing, processing of compounds</div></div>
+        <div class="industry-card"><span class="industry-icon">🧵</span><div class="industry-name">Textiles</div><div class="industry-desc">Fabric drying, fibre processing, treatment</div></div>
+        <div class="industry-card"><span class="industry-icon">✈️</span><div class="industry-name">Aerospace</div><div class="industry-desc">Composite curing, precision heat treatment</div></div>
+        <div class="industry-card"><span class="industry-icon">🔬</span><div class="industry-name">Laboratory</div><div class="industry-desc">R&D, QC, testing, vacuum ovens</div></div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <button class="btn-outline" onclick="showPage('applications')">All Applications →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS MARQUEE -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">
+        <div class="section-line"></div>
+        <div class="section-tag">Trusted By</div>
+      </div>
+      <h2 class="section-title">50+ Leading<br><em>MNC Clients</em></h2>
+    </div>
+    <div class="clients-marquee">
+      <div class="clients-track" id="marqueeTrack">
+        <span class="client-name">Reliance Industries</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Tata Motors</span>
+        <span class="client-name">·</span>
+        <span class="client-name">L&T</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Mahindra & Mahindra</span>
+        <span class="client-name">·</span>
+        <span class="client-name">ABB India</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Asian Paints</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Nestle</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Dabur</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Siemens</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Godrej & Boyce</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Crompton Greaves</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Indian Oil</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Pidilite Industries</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Thermax</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Kirloskar</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Kohler India</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Birla Group</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Reliance Industries</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Tata Motors</span>
+        <span class="client-name">·</span>
+        <span class="client-name">L&T</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Mahindra & Mahindra</span>
+        <span class="client-name">·</span>
+        <span class="client-name">ABB India</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Asian Paints</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Nestle</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Dabur</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Siemens</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Godrej & Boyce</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Crompton Greaves</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Indian Oil</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Pidilite Industries</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Thermax</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Kirloskar</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Kohler India</span>
+        <span class="client-name">·</span>
+        <span class="client-name">Birla Group</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL PRESENCE -->
+  <div class="world-section">
+    <div class="world-dots"></div>
+    <div class="world-inner">
+      <div class="section-eyebrow">
+        <div class="section-line"></div>
+        <div class="section-tag">Global Presence</div>
+      </div>
+      <h2 class="section-title">Installations Across<br><em>India & Globe</em></h2>
+      <p class="section-body" style="margin-top:16px;">
+        Serving clients across India and expanding globally — Dubai, Saudi Arabia, Africa, Gulf regions and beyond. 
+        Every oven we ship carries 45+ years of engineering excellence.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;">
+        <div style="background:rgba(0,0,0,0.4);padding:28px;border:1px solid rgba(200,16,46,0.2);text-align:center;">
+          <div style="font-family:var(--font-head);font-size:40px;font-weight:900;color:var(--red);">🇮🇳</div>
+          <div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:var(--white);margin-top:12px;">India</div>
+          <div style="font-size:12px;color:var(--grey-mid);margin-top:6px;">Pan-India Presence</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);padding:28px;border:1px solid rgba(200,16,46,0.2);text-align:center;">
+          <div style="font-family:var(--font-head);font-size:40px;font-weight:900;color:var(--red);">🇦🇪</div>
+          <div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:var(--white);margin-top:12px;">Dubai / UAE</div>
+          <div style="font-size:12px;color:var(--grey-mid);margin-top:6px;">Gulf Installations</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);padding:28px;border:1px solid rgba(200,16,46,0.2);text-align:center;">
+          <div style="font-family:var(--font-head);font-size:40px;font-weight:900;color:var(--red);">🇸🇦</div>
+          <div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:var(--white);margin-top:12px;">Saudi Arabia</div>
+          <div style="font-size:12px;color:var(--grey-mid);margin-top:6px;">Industrial Projects</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);padding:28px;border:1px solid rgba(200,16,46,0.2);text-align:center;">
+          <div style="font-family:var(--font-head);font-size:40px;font-weight:900;color:var(--red);">🌍</div>
+          <div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:var(--white);margin-top:12px;">Africa</div>
+          <div style="font-size:12px;color:var(--grey-mid);margin-top:6px;">& Expanding</div>
+        </div>
+      </div>
+      <div style="margin-top:48px;padding:32px;background:rgba(200,16,46,0.1);border:1px solid rgba(200,16,46,0.3);display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <div style="font-size:40px;">🇮🇳</div>
+        <div>
+          <div style="font-family:var(--font-head);font-weight:900;font-size:24px;color:var(--white);letter-spacing:2px;">MADE IN INDIA</div>
+          <div style="font-size:14px;color:var(--grey-light);margin-top:4px;">Proudly designed, engineered and manufactured in India — for India and the world.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div style="background:var(--red);padding:80px 2rem;">
+    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px;">
+      <div>
+        <div style="font-family:var(--font-head);font-weight:300;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:8px;">Ready to talk?</div>
+        <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4vw,48px);text-transform:uppercase;color:white;line-height:1;">
+          Tell Us Your<br>Heating Requirement.
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <button onclick="showPage('contact')" style="background:white;color:var(--red);border:none;padding:18px 40px;font-family:var(--font-head);font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">GET A QUOTE</button>
+        <button onclick="showPage('products')" style="background:transparent;color:white;border:2px solid rgba(255,255,255,0.5);padding:16px 40px;font-family:var(--font-head);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">VIEW PRODUCTS</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: ABOUT US
+═══════════════════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>About Us</span></div>
+      <h1 class="page-hero-title">About<br><em>AMI Industries</em></h1>
+      <p class="page-hero-sub">A legacy of heating excellence since 1980 — three generations of passion, craftsmanship and technical expertise serving India's most demanding industries.</p>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <section class="section" id="profile">
+    <div class="section-inner">
+      <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">Profile</div></div>
+      <h2 class="section-title">Our <em>Story</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;">
+        <div>
+          <p class="section-body">AMI Industries is one of India's most trusted and experienced manufacturers of Industrial Ovens, Dryers, Furnaces, and complete Heating Systems. Established in 1980 and headquartered in Mumbai, we have grown over four decades from a small industrial oven manufacturing unit into a full-scale engineering powerhouse.</p>
+          <p class="section-body" style="margin-top:16px;">Today we operate across <strong style="color:var(--white);">4 manufacturing facilities</strong> in Mumbai and Ahmedabad, with the third generation of the Panchal family proudly leading the group forward. For over 45 years, our ovens and systems are trusted by more than <strong style="color:var(--white);">3,500+ installations</strong> across India and by over <strong style="color:var(--white);">50 of India's most prominent MNCs and industrial companies.</strong></p>
+          <p class="section-body" style="margin-top:16px;">Our journey began in 1980 with a simple but powerful vision — to manufacture industrial ovens that are built to last, engineered to perform, and designed to deliver value for every rupee a client invests.</p>
+        </div>
+        <div>
+          <div style="background:var(--charcoal);padding:40px;">
+            <div style="font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:24px;">Key Facts</div>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div style="display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="color:var(--grey-mid);font-size:14px;">Founded</span>
+                <span style="color:var(--white);font-weight:600;font-family:var(--font-head);font-size:18px;">1980</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="color:var(--grey-mid);font-size:14px;">Headquarters</span>
+                <span style="color:var(--white);font-weight:600;font-size:14px;">Goregaon East, Mumbai</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="color:var(--grey-mid);font-size:14px;">Manufacturing Units</span>
+                <span style="color:var(--red);font-weight:700;font-family:var(--font-head);font-size:20px;">4</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="color:var(--grey-mid);font-size:14px;">Total Installations</span>
+                <span style="color:var(--red);font-weight:700;font-family:var(--font-head);font-size:20px;">6,500+</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="color:var(--grey-mid);font-size:14px;">Temperature Range</span>
+                <span style="color:var(--white);font-weight:600;font-size:14px;">50°C – 1150°C</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="color:var(--grey-mid);font-size:14px;">GST No.</span>
+                <span style="color:var(--white);font-size:13px;">27AHGPP8575J1ZL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="about-timeline" id="timeline" style="margin-top:80px;">
+        <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">Our Journey</div></div>
+        <h2 class="section-title">Timeline of<br><em>Growth</em></h2>
+        <div class="timeline-item">
+          <div class="timeline-year">1980</div>
+          <div><div class="timeline-content-title">Founded in Mumbai</div><div class="timeline-content-text">AMI Industries established as a small manufacturing unit in Mumbai with a vision to build industrial ovens that last and perform.</div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1991</div>
+          <div><div class="timeline-content-title">Diversification into High-End Technical Systems</div><div class="timeline-content-text">Recognized the need to grow and diversified into high-end technical heating and drying systems. Collaborated with world-renowned consultants to incorporate the latest know-how.</div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2000s</div>
+          <div><div class="timeline-content-title">Expansion & Second Generation</div><div class="timeline-content-text">Expanded product range significantly. Second generation leadership under Sejul Panchal took the company to new heights — complex projects, new markets, wider product portfolio.</div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2010s</div>
+          <div><div class="timeline-content-title">Ahmedabad Manufacturing Plant</div><div class="timeline-content-text">Opened Manufacturing Plant 2 in Ahmedabad, Gujarat and later the large Manufacturing Plant 3 at Sanand GIDC II. Now operating 4 facilities across Mumbai and Ahmedabad.</div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020s</div>
+          <div><div class="timeline-content-title">Third Generation & IoT Integration</div><div class="timeline-content-text">Manthan Panchal (3rd generation COO) leads modernization — integrating IoT and automation technologies, sustainability initiatives, and expanding global footprint.</div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Today</div>
+          <div><div class="timeline-content-title">6,500+ Installations & Growing</div><div class="timeline-content-text">50+ years. 6,500+ installations. 50+ MNC clients. 4 manufacturing plants. Three generations of engineering excellence. The AMI journey continues.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section" style="background:var(--charcoal);" id="mission">
+    <div class="section-inner">
+      <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">Mission & Vision</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;">
+        <div>
+          <h3 style="font-family:var(--font-head);font-weight:900;font-size:36px;text-transform:uppercase;color:var(--red);margin-bottom:20px;">Vision</h3>
+          <p class="section-body" style="font-style:italic;font-size:18px;color:var(--white);">"To be the global leader in innovative, efficient, and sustainable heating and drying solutions, setting benchmarks for industrial excellence and environmental responsibility."</p>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-weight:900;font-size:36px;text-transform:uppercase;color:var(--white);margin-bottom:20px;">Mission</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;gap:12px;"><div style="color:var(--red);flex-shrink:0;">▸</div><p style="font-size:14px;color:var(--grey-light);line-height:1.7;">To provide high-quality, technologically advanced heating and drying systems that meet the unique needs of industries worldwide.</p></div>
+            <div style="display:flex;gap:12px;"><div style="color:var(--red);flex-shrink:0;">▸</div><p style="font-size:14px;color:var(--grey-light);line-height:1.7;">To enhance operational efficiency for our clients while minimizing environmental impact through innovative and eco-friendly solutions.</p></div>
+            <div style="display:flex;gap:12px;"><div style="color:var(--red);flex-shrink:0;">▸</div><p style="font-size:14px;color:var(--grey-light);line-height:1.7;">To drive continuous improvement and deliver sustainable products that offer the best return on investment.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="values-grid" style="margin-top:80px;">
+        <div class="value-card"><div class="value-icon">💡</div><div class="value-name">Innovation</div><div class="value-desc">Consistently integrating cutting-edge technologies into product development and manufacturing processes.</div></div>
+        <div class="value-card"><div class="value-icon">⚙️</div><div class="value-name">Quality</div><div class="value-desc">Unwavering commitment ensuring every product adheres to the highest standards of durability, safety, and performance.</div></div>
+        <div class="value-card"><div class="value-icon">🤝</div><div class="value-name">Customer Focus</div><div class="value-desc">Every client at the center of everything we do. Tailored solutions that optimize operations and address specific challenges.</div></div>
+        <div class="value-card"><div class="value-icon">🌱</div><div class="value-name">Sustainability</div><div class="value-desc">Energy-efficient processes and products that help reduce waste, conserve energy, and minimize environmental impact.</div></div>
+        <div class="value-card"><div class="value-icon">🛡️</div><div class="value-name">Integrity</div><div class="value-desc">Highest standards of ethics in all aspects of business — fostering transparency and trust with clients and partners.</div></div>
+        <div class="value-card"><div class="value-icon">📈</div><div class="value-name">Continuous Improvement</div><div class="value-desc">Always seeking new ways to improve processes, products, and services — staying ahead of industry trends.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="team">
+    <div class="section-inner">
+      <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">Leadership</div></div>
+      <h2 class="section-title">The <em>Panchal Family</em><br>Legacy</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">HP</div>
+          <div class="team-name">Hasmukh Panchal</div>
+          <div class="team-role">Founder · 1st Generation</div>
+          <div class="team-desc">The visionary who laid the foundation of AMI Industries in 1980 with a commitment to innovative heating solutions. His passion for engineering excellence and dedication to quality grew the company from a small proprietorship into a leading manufacturer.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">SP</div>
+          <div class="team-name">Sejul Panchal</div>
+          <div class="team-role">CEO · 2nd Generation</div>
+          <div class="team-desc">Taking the company to new heights — significantly expanding AMI Industries by introducing a wider range of products, spearheading complex projects, and transforming AMI into a global powerhouse in high-performance tailored heating solutions.<br><br><em style="color:var(--grey-mid);font-size:12px;">"Our journey began with a vision to create innovative heating solutions that contribute to sustainable industrial growth."</em></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">MP</div>
+          <div class="team-name">Manthan Panchal</div>
+          <div class="team-role">COO · 3rd Generation</div>
+          <div class="team-desc">Leading AMI's modernization — integrating IoT and automation technologies into products and operations. Focused on sustainability, precision, and keeping AMI competitive in a rapidly evolving global market. Contact: +91 98206 72269</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section" style="background:var(--charcoal);" id="certs">
+    <div class="section-inner">
+      <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">Certifications</div></div>
+      <h2 class="section-title">Quality <em>Assured</em></h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">📋</div>
+          <div class="cert-name">ISO Compliance</div>
+          <div class="cert-desc">Manufacturing processes adhere to international ISO quality standards ensuring consistent, reliable output.</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🛡️</div>
+          <div class="cert-name">Safety Certified</div>
+          <div class="cert-desc">All equipment meets occupational safety and regulatory compliance requirements as per industry norms.</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🏭</div>
+          <div class="cert-name">MSME Registered</div>
+          <div class="cert-desc">Registered manufacturer with full government certifications and GST registration (27AHGPP8575J1ZL).</div>
+        </div>
+      </div>
+      <div style="margin-top:40px;padding:32px;background:rgba(200,16,46,0.08);border:1px solid rgba(200,16,46,0.2);">
+        <div style="font-family:var(--font-head);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Note</div>
+        <div style="font-size:14px;color:var(--grey-light);line-height:1.8;">Certificate images and official documentation are available for verified clients. Contact us for full certification details. <strong style="color:var(--white);">AMI Industries is a registered trademark. We have no subsidiaries or similar companies.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">FAQs</div></div>
+      <h2 class="section-title">Frequently Asked<br><em>Questions</em></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What are the primary differences between conveyor ovens and batch ovens?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">Conveyor ovens are ideal for continuous production processes, where materials move through the oven on a conveyor belt — consistent heating over a longer duration. Batch ovens are suited for processing materials in discrete batches, making them suitable for applications requiring flexibility in load sizes and variations in processing times.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What is the difference between AMI Industries and a local oven manufacturer?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">AMI Industries prioritizes quality control with advanced manufacturing and rigorous testing. Our ovens feature superior air circulation designs for consistent temperatures. We conduct thorough heat load calculations for each application and specialize in fully custom solutions. With 45+ years of experience, 6,500+ installations, and 50+ MNC clients, we offer unparalleled expertise that local manufacturers simply cannot match.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>When should I choose electric heating vs. gas-fired vs. IR vs. UV?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">Electric Heating: Ideal for precise temperature control and cleanliness, where gas is impractical. Gas-Fired: More energy-efficient for large-scale operations needing high temperatures and fast heating. Infrared (IR): Best for rapid heating — fast heat transfer directly to the material for drying and curing. UV: Ideal for curing coatings and inks, fast curing times with low heat output.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What temperature range do AMI ovens cover?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">AMI Industries covers the full range from 50°C to 1150°C across all our product categories. This covers everything from gentle food drying at ambient temperatures through to high-temperature furnace work for special alloys, glass and ceramic processing.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Do you offer custom solutions?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">Absolutely — at AMI Industries, we firmly believe that no two clients have the same requirements. Every oven, dryer, or furnace we build is engineered specifically for the client's process, product, space, and production requirements. We do not believe in a one-size-fits-all approach. From initial technical discussion to 3D drawing preparation, from fabrication to on-site installation and commissioning — every step is handled with precision.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What maintenance do industrial ovens require?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">Routine inspections of heating elements and controls, cleaning filters and ventilation systems, checking insulation and seals for wear, calibration of temperature controls, and addressing operational issues promptly. AMI provides complete technical documentation and wiring diagrams with every oven for easy maintenance, plus our team is always available for after-sales support.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What is the typical lead time for orders?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">Lead times vary based on product specifications and order size. Standard products have shorter lead times, while custom-built large systems and turnkey plants require longer lead times. We will provide an estimated delivery date upon order confirmation. AMI is committed to timely delivery — we honour our deadlines every time.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Can AMI assist with installation and training?</span><div class="faq-q-icon">+</div></div>
+          <div class="faq-a">Absolutely! AMI Industries provides comprehensive on-site installation services, commissioning, and operator training for all our products. Our experienced engineers ensure your staff is well-equipped to operate and maintain the equipment effectively, maximizing your investment. After-sales support is always available.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: PRODUCTS
+═══════════════════════════════════════════════════════════ -->
+<div id="page-products" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Products</span></div>
+      <h1 class="page-hero-title">Complete<br><em>Product Range</em></h1>
+      <p class="page-hero-sub">20+ product categories · 50°C to 1150°C · Electrical, Gas, Oil, IR, UV, Thermic Fluid · All Custom Built</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="products-filter" id="productFilter">
+        <button class="filter-btn active" onclick="filterProducts('all',this)">All Products</button>
+        <button class="filter-btn" onclick="filterProducts('ovens',this)">Batch Ovens</button>
+        <button class="filter-btn" onclick="filterProducts('dryers',this)">Tray Dryers</button>
+        <button class="filter-btn" onclick="filterProducts('electrode',this)">Electrode Ovens</button>
+        <button class="filter-btn" onclick="filterProducts('flux',this)">Flux Ovens</button>
+        <button class="filter-btn" onclick="filterProducts('furnaces',this)">Furnaces</button>
+        <button class="filter-btn" onclick="filterProducts('conveyor',this)">Conveyorised</button>
+        <button class="filter-btn" onclick="filterProducts('gas',this)">Gas Fired</button>
+        <button class="filter-btn" onclick="filterProducts('painting',this)">Painting Booths</button>
+        <button class="filter-btn" onclick="filterProducts('turnkey',this)">Turnkey Plants</button>
+        <button class="filter-btn" onclick="filterProducts('fabrication',this)">Fabrication</button>
+      </div>
+      <div class="products-list" id="productsList">
+        <!-- Products injected by JS -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: APPLICATIONS
+═══════════════════════════════════════════════════════════ -->
+<div id="page-applications" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Applications</span></div>
+      <h1 class="page-hero-title">Applications<br><em>List</em></h1>
+      <p class="page-hero-sub">13 application categories. From heat treatment to food dehydration — AMI has the right oven for your process.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-body">Temperature Range covered: <strong style="color:var(--white);">50°C to 1150°C</strong> · Heating Modes: <strong style="color:var(--red);">Electrical | Gas Fired | Oil Fired | Thermic Fluid | IR | UV</strong></p>
+      <div class="applications-accordion" id="applicationsAccordion">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: WHY CHOOSE AMI
+═══════════════════════════════════════════════════════════ -->
+<div id="page-why" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Why Choose AMI</span></div>
+      <h1 class="page-hero-title">The AMI<br><em>Advantage</em></h1>
+      <p class="page-hero-sub">Built different. Built better. Here's exactly why leading MNCs and industrial companies across India choose AMI Industries over any other manufacturer.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">The AMI Difference</div></div>
+      <h2 class="section-title">What Sets Us<br><em>Apart</em></h2>
+      <div class="features-grid">
+        <div class="feature-block">
+          <div class="feature-num">01</div>
+          <div class="feature-content">
+            <div class="feature-title">Construction & Build Quality</div>
+            <div class="feature-desc">Heavy-duty MS/SS structural angles with reinforced framework. High-grade mineral wool/ceramic fibre insulation. Heavy-duty doors with proper sealing gaskets.</div>
+            <div class="feature-detail">AMI: 10+ years trouble-free · Others: Repairs within a few years</div>
+          </div>
+        </div>
+        <div class="feature-block">
+          <div class="feature-num">02</div>
+          <div class="feature-content">
+            <div class="feature-title">Temperature Uniformity</div>
+            <div class="feature-desc">Proven air circulation pattern ensures equal heat distribution throughout the entire chamber. No hot or cold zones — every corner of your batch gets precisely the same temperature.</div>
+            <div class="feature-detail">AMI: Proven uniform distribution · Others: Hot and cold zones</div>
+          </div>
+        </div>
+        <div class="feature-block">
+          <div class="feature-num">03</div>
+          <div class="feature-content">
+            <div class="feature-title">Energy Efficiency</div>
+            <div class="feature-desc">Latest technology saves up to 20% energy through optimised air flow and premium insulation. Lower electricity and fuel bills through energy-efficient design over the oven's entire operational life.</div>
+            <div class="feature-detail">AMI: Up to 20% energy savings · Others: High running costs</div>
+          </div>
+        </div>
+        <div class="feature-block">
+          <div class="feature-num">04</div>
+          <div class="feature-content">
+            <div class="feature-title">Control Systems & Safety</div>
+            <div class="feature-desc">Digital PID/Thyristor controlled for precise and stable temperature. Over-temperature protection, heater failure alarm, blower failure alarm, door interlock. Full wiring and system diagram provided.</div>
+            <div class="feature-detail">AMI: Full safety suite + documentation · Others: Minimal/no safety features</div>
+          </div>
+        </div>
+        <div class="feature-block">
+          <div class="feature-num">05</div>
+          <div class="feature-content">
+            <div class="feature-title">Full Customization</div>
+            <div class="feature-desc">Every oven is custom-designed as per the client's process, space and production requirements. Full 3D drawings, layouts and technical documentation provided before manufacturing begins.</div>
+            <div class="feature-detail">AMI: Custom every time · Others: Standard catalogue only</div>
+          </div>
+        </div>
+        <div class="feature-block">
+          <div class="feature-num">06</div>
+          <div class="feature-content">
+            <div class="feature-title">After Sales Service</div>
+            <div class="feature-desc">Always available — anytime support for any technical issue. On-site installation, commissioning and operator training provided. Fast response time — our commitment to every client.</div>
+            <div class="feature-detail">AMI: Always available · Others: Difficult to reach after payment</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <div style="margin-top:80px;">
+        <div class="section-eyebrow"><div class="section-line"></div><div class="section-tag">Head to Head</div></div>
+        <h2 class="section-title">AMI vs <em>Others</em></h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th class="ami-col">AMI Industries</th>
+                <th class="other-col">Ordinary Manufacturers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Body Construction</td><td class="ami-val">Heavy-duty MS/SS with reinforced framework</td><td class="other-val">Thin gauge sheet metal, lightweight frame</td></tr>
+              <tr><td>Insulation</td><td class="ami-val">High-grade mineral wool / ceramic fibre</td><td class="other-val">Standard or substandard, leading to heat loss</td></tr>
+              <tr><td>Temperature Range</td><td class="ami-val">50°C to 1150°C — fully covered</td><td class="other-val">Limited temperature range</td></tr>
+              <tr><td>Temperature Uniformity</td><td class="ami-val">Proven air circulation — equal heat everywhere</td><td class="other-val">Uneven hot and cold zones</td></tr>
+              <tr><td>Energy Savings</td><td class="ami-val">Up to 20% via optimised air flow + insulation</td><td class="other-val">High energy consumption, poor design</td></tr>
+              <tr><td>Safety Features</td><td class="ami-val">Over-temp, heater fail, blower fail, door interlock</td><td class="other-val">Minimal or no safety features</td></tr>
+              <tr><td>Customization</td><td class="ami-val">Every oven custom-built, 3D drawings provided</td><td class="other-val">Standard catalogue only, no customisation</td></tr>
+              <tr><td>Heating Modes</td><td class="ami-val">Electrical, Gas, Oil, Thermic Fluid, IR, UV</td><td class="other-val">Usually electrical only</td></tr>
+              <tr><td>Product Range</td><td class="ami-val">20+ categories covering all industries</td><td class="other-val">Limited to 2-3 product types</td></tr>
+              <tr><td>After Sales</td><td class="ami-val">Always available, on-site support, fast response</td><td class="other-val">Difficult to reach after payment</td></tr>
+              <tr><td>Documentation</td><td class="ami-val">Full wiring diagrams + operation manuals</td><td class="other-val">No documentation provided</td></tr>
+              <tr><td>Experience</td><td class="ami-val">45+ Years, 3rd generation expertise</td><td class="other-val">Typically newer, limited experience</td></tr>
+              <tr><td>Installations</td><td class="ami-val">6,500+ working satisfactorily across India</td><td class="other-val">Limited and unverified installations</td></tr>
+              <tr><td>Lifespan</td><td class="ami-val">10+ years of trouble-free operation</td><td class="other-val">Frequent repairs within a few years</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AMI PROMISE -->
+      <div style="margin-top:80px;background:var(--red);padding:60px 40px;">
+        <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4vw,48px);text-transform:uppercase;color:white;margin-bottom:40px;">The AMI Promise</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+          <div style="display:flex;gap:16px;">
+            <div style="color:rgba(255,255,255,0.5);font-size:24px;flex-shrink:0;">▸</div>
+            <div><div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:white;margin-bottom:6px;">We Design As Per Your Needs</div><div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Every oven is custom-built for your exact process requirement — no compromise, no shortcuts.</div></div>
+          </div>
+          <div style="display:flex;gap:16px;">
+            <div style="color:rgba(255,255,255,0.5);font-size:24px;flex-shrink:0;">▸</div>
+            <div><div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:white;margin-bottom:6px;">Quality At Every Step</div><div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">From raw material selection to final commissioning, quality is maintained and verified at every single stage.</div></div>
+          </div>
+          <div style="display:flex;gap:16px;">
+            <div style="color:rgba(255,255,255,0.5);font-size:24px;flex-shrink:0;">▸</div>
+            <div><div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:white;margin-bottom:6px;">Energy Efficient By Design</div><div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Save up to 20% on energy costs with optimised air circulation, premium insulation and efficient heating systems.</div></div>
+          </div>
+          <div style="display:flex;gap:16px;">
+            <div style="color:rgba(255,255,255,0.5);font-size:24px;flex-shrink:0;">▸</div>
+            <div><div style="font-family:var(--font-head);font-weight:700;font-size:16px;text-transform:uppercase;color:white;margin-bottom:6px;">Complete Peace Of Mind</div><div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">From 3D drawings before manufacturing to on-site installation, commissioning, training and after-sales — AMI is with you every step.</div></div>
+          </div>
+        </div>
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.2);font-family:var(--font-head);font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);">
+          45+ Years. 6,500+ Installations. 50+ MNC Clients. Three Generations of Engineering Excellence.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: GALLERY
+═══════════════════════════════════════════════════════════ -->
+<div id="page-gallery" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Gallery</span></div>
+      <h1 class="page-hero-title">Photos &<br><em>Gallery</em></h1>
+      <p class="page-hero-sub">Our products, installations, manufacturing facility and team in action.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&q=80" alt="Industrial Oven"><div class="gallery-item-label">Industrial Batch Oven</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Furnace"><div class="gallery-item-label">High Temp Furnace</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Welding"><div class="gallery-item-label">Electrode Oven</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Factory"><div class="gallery-item-label">Manufacturing Plant</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cf?w=600&q=80" alt="Painting Booth"><div class="gallery-item-label">Spray Painting Booth</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&q=80" alt="Industrial"><div class="gallery-item-label">Tray Dryer System</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=80" alt="Conveyor"><div class="gallery-item-label">Conveyorised Plant</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1533073526757-2c8ca1df9f1c?w=600&q=80" alt="Control Panel"><div class="gallery-item-label">Control Panel</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1619649075913-d705eed2a67d?w=600&q=80" alt="Laser Cutting"><div class="gallery-item-label">Laser Cutting</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80" alt="Walk In Oven"><div class="gallery-item-label">Walk-In Oven</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80" alt="Box Furnace"><div class="gallery-item-label">Box Furnace</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Gas Oven"><div class="gallery-item-label">Gas Fired Oven</div></div>
+      </div>
+      <div style="margin-top:48px;padding:24px;background:var(--charcoal);border-left:3px solid var(--red);">
+        <div style="font-size:14px;color:var(--grey-light);">📸 <strong style="color:var(--white);">Photos & Videos</strong> — For actual installation photos, factory tour videos, and CAD drawings of specific products, please contact our sales team. We also have detailed 3D models created in SolidWorks for each product category.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: CLIENTS
+═══════════════════════════════════════════════════════════ -->
+<div id="page-clients" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Clients</span></div>
+      <h1 class="page-hero-title">Our <em>Clients</em></h1>
+      <p class="page-hero-sub">50+ leading MNCs and industrial companies across India trust AMI Industries.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;" id="clientsGrid">
+        <!-- Injected by JS -->
+      </div>
+      <div style="margin-top:60px;background:var(--charcoal);padding:40px;display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-family:var(--font-head);font-weight:900;font-size:48px;color:var(--red);">89%</div>
+          <div style="font-size:13px;color:var(--grey-mid);letter-spacing:2px;text-transform:uppercase;margin-top:4px;">Repeat Customer Rate</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-head);font-weight:900;font-size:48px;color:var(--white);">50+</div>
+          <div style="font-size:13px;color:var(--grey-mid);letter-spacing:2px;text-transform:uppercase;margin-top:4px;">MNC Clients</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-head);font-weight:900;font-size:48px;color:var(--red);">6,500+</div>
+          <div style="font-size:13px;color:var(--grey-mid);letter-spacing:2px;text-transform:uppercase;margin-top:4px;">Total Installations</div>
+        </div>
+        <div style="max-width:300px;">
+          <p style="font-size:14px;color:var(--grey-light);line-height:1.8;font-style:italic;">"More than 3,500 ovens are working satisfactorily across India — a testament to the quality and reliability that AMI Industries stands for."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE: CONTACT
+═══════════════════════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><span onclick="showPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Contact Us</span></div>
+      <h1 class="page-hero-title">Get In <em>Touch</em></h1>
+      <p class="page-hero-sub">Tell us your heating requirement. Our engineering team will design the most efficient, cost-effective and durable solution for your exact process needs.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-block">
+            <div class="contact-block-label">Head Office / Works</div>
+            <div class="contact-block-title">Mumbai HQ</div>
+            <div class="contact-block-text">8 Surve Industrial Estate,<br>1st Sonawala Cross Road,<br>Goregaon East, Mumbai – 400063</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Manufacturing Unit 1</div>
+            <div class="contact-block-title">Vasai, Mumbai</div>
+            <div class="contact-block-text">A 29/37 Patel Industrial Estate,<br>Chinchoti – Bhiwandi Road, Kaman,<br>Vasai East – 401208</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Manufacturing Unit 2</div>
+            <div class="contact-block-title">Ahmedabad, Gujarat</div>
+            <div class="contact-block-text">5A Ahmedabad Audhyogig Vasahat,<br>Dhobighat, Dudeshwar Road,<br>Outside Shahpur – Ahmedabad 380004</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Manufacturing Unit 3</div>
+            <div class="contact-block-title">Ahmedabad (Upcoming)</div>
+            <div class="contact-block-text">E-31 Sanand GIDC II, Ahmedabad</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Key Contacts</div>
+            <div class="contact-block-title">Sales Team</div>
+            <div class="contact-block-text">
+              <strong style="color:var(--white);">Manthan Panchal (COO)</strong><br>
+              <a href="tel:+919820672269" class="contact-block-link">+91 98206 72269</a><br><br>
+              <strong style="color:var(--white);">Sejul Panchal (CEO)</strong><br>
+              <a href="tel:+919974733331" class="contact-block-link">+91 99747 33331</a><br><br>
+              <a href="mailto:sales@amiindustries.com" class="contact-block-link">sales@amiindustries.com</a><br>
+              <a href="mailto:inquiry@amiindustries.com" class="contact-block-link">inquiry@amiindustries.com</a><br>
+              <a href="mailto:amiindustrialovens@gmail.com" class="contact-block-link">amiindustrialovens@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Website</div>
+            <div class="contact-block-title">Online</div>
+            <div class="contact-block-text"><a href="http://www.amiindustries.com" class="contact-block-link">www.amiindustries.com</a><br><br><strong style="color:var(--white);">GST:</strong> 27AHGPP8575J1ZL<br><br><span style="color:var(--red);font-size:12px;letter-spacing:1px;">⚠ AMI Industries is a registered trademark. We have no subsidiaries or similar companies.</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-form">
+            <div style="font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:8px;">Request a Quote</div>
+            <div style="font-size:13px;color:var(--grey-mid);margin-bottom:32px;">Share your requirement and our engineering team will respond within 24 hours.</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your Name *</label>
+                <input type="text" class="form-input" placeholder="Full name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Company</label>
+                <input type="text" class="form-input" placeholder="Company name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Phone *</label>
+                <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-input" placeholder="you@company.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Product Category</label>
+              <select class="form-select">
+                <option value="">— Select product type —</option>
+                <option>Industrial Batch Oven</option>
+                <option>Tray Dryer</option>
+                <option>Electrode Baking Oven</option>
+                <option>Flux Drying Oven</option>
+                <option>Furnace (Muffle / Box / Annealing)</option>
+                <option>Conveyorised Oven / Plant</option>
+                <option>Gas Fired Oven</option>
+                <option>Spray Painting Booth</option>
+                <option>Powder Coating Booth</option>
+                <option>Turnkey Painting / Coating Plant</option>
+                <option>Fabrication / Laser Cutting</option>
+                <option>Other / Custom</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Temperature Required</label>
+                <input type="text" class="form-input" placeholder="e.g. 200°C">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Heating Mode</label>
+                <select class="form-select">
+                  <option>— Select —</option>
+                  <option>Electrical</option>
+                  <option>Gas Fired (LPG/PNG)</option>
+                  <option>Oil Fired</option>
+                  <option>IR / UV</option>
+                  <option>Thermic Fluid</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Requirement / Message</label>
+              <textarea class="form-textarea" placeholder="Describe your process, material, chamber size, production volume, any specific requirements..."></textarea>
+            </div>
+            <button class="btn-primary" style="width:100%;padding:18px;font-size:15px;" onclick="submitForm(this)">SEND ENQUIRY →</button>
+            <div style="font-size:11px;color:var(--grey);margin-top:16px;text-align:center;letter-spacing:0.5px;">We respond within 24 hours · All enquiries are confidential</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-logo">
+        <div class="nav-logo-icon">AMI</div>
+        <div>
+          <div class="nav-logo-text">AMI INDUSTRIES</div>
+          <div class="nav-logo-sub">Est. 1980 · Mumbai</div>
+        </div>
+      </div>
+      <div class="footer-tagline">"Heating Mastery: Where Precision<br>Meets Innovation in Ovens"</div>
+      <div class="footer-desc">India's most trusted manufacturer of Industrial Ovens, Dryers, Furnaces and Heating Systems. 45+ years. 6,500+ installations. 50+ MNC clients.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <div class="footer-links">
+        <span class="footer-link" onclick="showPage('home')">Home</span>
+        <span class="footer-link" onclick="showPage('about')">About Us</span>
+        <span class="footer-link" onclick="showPage('products')">Products</span>
+        <span class="footer-link" onclick="showPage('applications')">Applications</span>
+        <span class="footer-link" onclick="showPage('why')">Why Choose AMI</span>
+        <span class="footer-link" onclick="showPage('gallery')">Gallery</span>
+        <span class="footer-link" onclick="showPage('clients')">Clients</span>
+        <span class="footer-link" onclick="showPage('contact')">Contact Us</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <div class="footer-links">
+        <span class="footer-link" onclick="showPage('products');filterProducts('ovens')">Industrial Ovens</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('dryers')">Tray Dryers</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('electrode')">Electrode Ovens</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('furnaces')">Furnaces</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('conveyor')">Conveyorised Ovens</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('painting')">Painting Booths</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('turnkey')">Turnkey Plants</span>
+        <span class="footer-link" onclick="showPage('products');filterProducts('fabrication')">Fabrication</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div>8 Surve Industrial Estate, 1st Sonawala Cross Road, Goregaon East, Mumbai 400063</div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div>+91 98206 72269<br>+91 99747 33331</div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">✉️</div><div><a href="mailto:sales@amiindustries.com" style="color:var(--red);text-decoration:none;">sales@amiindustries.com</a><br><a href="mailto:inquiry@amiindustries.com" style="color:var(--red);text-decoration:none;">inquiry@amiindustries.com</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">🌐</div><div><a href="http://www.amiindustries.com" style="color:var(--red);text-decoration:none;">www.amiindustries.com</a></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">© 2025 AMI Industries. All Rights Reserved.</div>
+    <div class="footer-trademark">AMI Industries is a Registered Trademark. No subsidiaries or similar companies exist.</div>
+    <div class="footer-bottom-links">
+      <span class="footer-bottom-link">Privacy Policy</span>
+      <span class="footer-bottom-link">GST: 27AHGPP8575J1ZL</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ─── DATA ─── */
+const PRODUCTS = [
+  {id:'batch-oven',cat:'ovens',num:'1.1',catLabel:'Batch Ovens',name:'Standard Batch Type Industrial Oven',desc:'Heavy-duty oven for general industrial drying, baking and heating. Available from bench-top to walk-in. Custom-built to client specs.',temp:'50°C – 600°C',modes:'Electrical | Gas | IR | UV',features:['Heavy-duty MS/SS construction with reinforced framework','High-grade mineral wool / ceramic fibre insulation','Proven forced air circulation for uniform temperature','Digital PID temperature controller with over-temperature protection','Sophisticated control panel with full safety features','Available in single door, double door and multiple door configurations','SS interior available as per requirement'],apps:'General drying, baking, curing, heating, paint baking, powder coating, varnish baking, rubber curing, chemical drying'},
+  {id:'walk-in-oven',cat:'ovens',num:'1.2',catLabel:'Batch Ovens',name:'Walk-In Batch Type Oven',desc:'Extra-large chamber ovens for big, heavy or bulk components. Components loaded directly on trolleys, racks or carts.',temp:'50°C – 600°C',modes:'Electrical | Gas | IR | UV',features:['Extra-large chamber — custom-built to any size','Heavy-duty insulated doors with locking mechanism','Trolley/rack loading system','Uniform temperature distribution throughout large chamber','High-capacity heating system'],apps:'Large component heat treatment, bulk material drying, large motor winding varnish baking, heavy engineering'},
+  {id:'trolley-oven',cat:'ovens',num:'1.3',catLabel:'Batch Ovens',name:'Trolley Type Oven',desc:'Heavy components loaded via in-built trolley system that rolls directly into the oven chamber.',temp:'50°C – 600°C',modes:'Electrical | Gas | IR',features:['In-built trolley rail system inside oven chamber','Heavy-duty trolley with heat-resistant wheels','Large insulated door for full trolley access','Motorised door option available'],apps:'Heavy engineering components, large fabricated parts, automobile body components, large castings and forgings'},
+  {id:'paint-oven',cat:'ovens',num:'1.4',catLabel:'Batch Ovens',name:'Paint Baking Oven',desc:'Specifically designed for baking liquid paint and primer coatings. Ensures uniform curing for a perfect, durable finish.',temp:'80°C – 250°C',modes:'Electrical | Gas',features:['Uniform air circulation for even paint curing','Precise temperature control for perfect paint cure','Solvent exhaust system for safe operation','SS or MS interior as per requirement'],apps:'Automobile parts, industrial components, consumer goods, appliances, furniture, steel structures'},
+  {id:'powder-oven',cat:'ovens',num:'1.5',catLabel:'Batch Ovens',name:'Powder Coating Oven',desc:'Engineered for curing electrostatically applied powder coatings. Precise and uniform temperature to melt and cure powder to a hard, durable finish.',temp:'180°C – 220°C',modes:'Electrical | Gas | IR',features:['Precise temperature uniformity critical for powder cure','Fast heat-up for high production efficiency','Available in batch and conveyorised configurations','Compatible with all types of powder coatings'],apps:'Metal furniture, automobile parts, electrical enclosures, architectural aluminium'},
+  {id:'varnish-oven',cat:'ovens',num:'1.6',catLabel:'Batch Ovens',name:'Varnish Baking Oven',desc:'For varnish impregnation and baking of motor windings, transformer coils, generator windings and electrical components.',temp:'100°C – 200°C',modes:'Electrical | Gas',features:['Precise temperature control for varnish curing','Uniform heat for consistent varnish cure across all windings','Special ventilation for safe removal of varnish fumes','Custom-built for windmill components and large generators'],apps:'Electric motors, transformers, generators, alternators, windmill components'},
+  {id:'vacuum-oven',cat:'ovens',num:'1.10',catLabel:'Batch Ovens',name:'Vacuum Oven',desc:'Operates under vacuum — eliminating oxygen from the heating environment. For sensitive processes where oxidation must be prevented.',temp:'Ambient – 250°C',modes:'Electrical',features:['Stainless steel vacuum-tight chamber','Vacuum pump system with gauge and control','Precise temperature control in vacuum environment','Available for laboratory and industrial scale'],apps:'Pharmaceutical drying, electronic component processing, aerospace, precision metal processing, R&D'},
+  {id:'lab-oven',cat:'ovens',num:'1.11',catLabel:'Batch Ovens',name:'Laboratory Oven',desc:'Compact, precision-engineered oven for laboratory, R&D, quality control and testing applications.',temp:'Ambient – 300°C',modes:'Electrical',features:['Compact bench-top or floor-standing design','Highly precise digital temperature control','Uniform temperature in small chamber','SS interior, observation window available'],apps:'R&D laboratories, quality control, pharmaceutical labs, research institutes, testing and calibration'},
+  {id:'tray-dryer',cat:'dryers',num:'2.1',catLabel:'Tray Dryers',name:'Standard Tray Dryer',desc:'Multi-tray drying system — 4 to 192 tray capacity. Material spread on trays and dried uniformly by forced hot air circulation.',temp:'Ambient – 600°C',modes:'Electrical | Gas | IR | UV',features:['Available from 4 trays to 192 trays','MS/SS tray construction as per requirement','Uniform forced air circulation across all trays','Precise temperature control','Easy loading with tray trolley system'],apps:'Pharmaceutical granules, food products, spices, dry fruits, chemicals, industrial materials, abrasives'},
+  {id:'ss-tray-dryer',cat:'dryers',num:'2.2',catLabel:'Tray Dryers',name:'SS Tray Dryer (Pharmaceutical Grade)',desc:'Fully SS-constructed tray dryer for pharmaceutical-grade standards. Easy to clean and sanitise.',temp:'Ambient – 200°C',modes:'Electrical',features:['Full SS 304/316 construction — interior, exterior and trays','Easy to clean and sanitise','Compliant with food and pharmaceutical hygiene standards'],apps:'Pharmaceutical industry, food processing, nutraceuticals, spices and food dehydration'},
+  {id:'large-tray-dryer',cat:'dryers',num:'2.3',catLabel:'Tray Dryers',name:'Large Capacity Tray Dryer (Up to 192 Trays)',desc:'For high-volume industrial drying. AMI\'s 192-tray dryers are among the largest available.',temp:'Ambient – 300°C',modes:'Electrical | Gas',features:['Up to 192 trays in a single unit','Multiple blower and heater zones for uniform drying','Heavy-duty construction for continuous operation','Multiple door access for large chambers'],apps:'Large-scale food dehydration, industrial chemical drying, spice processing plants'},
+  {id:'electrode-oven',cat:'electrode',num:'3.1',catLabel:'Electrode Ovens',name:'Standard Electrode Baking Oven',desc:'For baking and drying all types of welding electrodes — MS, SS, cast iron and low hydrogen. Ensures complete moisture removal for defect-free welding.',temp:'Ambient – 600°C',modes:'Electrical | Gas',features:['Uniform temperature distribution critical for electrode baking','MS and SS interior versions available','Multiple shelf/tray configurations','Precise digital temperature control','Small portable units to large industrial ovens'],apps:'Welding electrode manufacturers, fabrication shops, oil & gas, power plants, shipbuilding, heavy engineering'},
+  {id:'portable-electrode',cat:'electrode',num:'3.3',catLabel:'Electrode Ovens',name:'Portable / Site Electrode Drying Oven',desc:'Compact, portable electrode drying oven for construction sites, field welding and remote locations.',temp:'Ambient – 300°C',modes:'Electrical',features:['Compact and portable design','Site-friendly robust construction','Quick heat-up for fast electrode conditioning'],apps:'Field welding, pipeline construction, site fabrication, shipbuilding yards'},
+  {id:'flux-oven',cat:'flux',num:'4.1',catLabel:'Flux Drying Ovens',name:'Standard Flux Drying Oven',desc:'Specifically designed for drying and reconditioning welding flux for submerged arc welding (SAW). Moisture in flux leads to welding defects — AMI flux ovens ensure perfectly dry flux every time.',temp:'Ambient – 600°C',modes:'Electrical | Gas',features:['Uniform forced air circulation for even flux drying','SS or MS interior','Precise temperature control','Multiple tray/shelf configurations'],apps:'Submerged arc welding, welding flux manufacturers, heavy fabrication, shipbuilding, pressure vessel manufacturers'},
+  {id:'muffle-furnace',cat:'furnaces',num:'5.1',catLabel:'Furnaces',name:'Muffle Furnace',desc:'High-temperature furnace where material is heated indirectly, isolated from combustion gases. For ashing, sintering, heat treatment and high temperature testing.',temp:'Up to 1150°C',modes:'Electrical | Gas',features:['High-grade ceramic fibre / refractory insulation','Precise digital temperature control up to 1150°C','Fast heat-up to operating temperature','Even temperature distribution inside muffle chamber'],apps:'Laboratories, R&D, quality testing, ashing, sintering, ceramic processing, heat treatment testing'},
+  {id:'box-furnace-hardening',cat:'furnaces',num:'5.2',catLabel:'Furnaces',name:'Box Furnace — Hardening',desc:'Designed specifically for the hardening process — rapidly heating components to austenitizing temperature, followed by controlled quenching.',temp:'800°C – 1150°C',modes:'Electrical | Gas',features:['Rapid heat-up to hardening temperature','Uniform temperature throughout chamber','Compatible with quench tank systems'],apps:'Tool and die hardening, gear and shaft hardening, precision engineering, cutting tool heat treatment'},
+  {id:'box-furnace-tempering',cat:'furnaces',num:'5.3',catLabel:'Furnaces',name:'Box Furnace — Tempering',desc:'Used after hardening to reduce brittleness and achieve desired hardness-toughness balance. Precise temperature control at lower temperatures.',temp:'150°C – 700°C',modes:'Electrical | Gas',features:['Precise temperature control critical for tempering','Uniform temperature throughout chamber','Often supplied as a pair with hardening furnace'],apps:'Tool and die tempering, engineering components, automotive parts, springs and fasteners'},
+  {id:'annealing-furnace',cat:'furnaces',num:'5.4',catLabel:'Furnaces',name:'Annealing Furnace (Inert Atmosphere)',desc:'Specialised furnace for annealing metals in inert atmosphere (nitrogen, argon) to prevent oxidation. Vertical opening for easy loading.',temp:'Up to 1150°C',modes:'Electrical | Gas',features:['Inert gas purging system (nitrogen/argon)','Vertical opening door mechanism','Precise temperature control for annealing cycles','Gas-tight construction to maintain inert atmosphere'],apps:'Bright annealing of stainless steel, copper and special alloys, oxide-free surface finish components'},
+  {id:'car-bottom-furnace',cat:'furnaces',num:'5.6',catLabel:'Furnaces',name:'Car Bottom Furnace',desc:'Large industrial furnace where the hearth is mounted on a movable car/trolley that rolls out for easy loading and unloading of very heavy components.',temp:'500°C – 1100°C',modes:'Electrical | Gas',features:['Movable car hearth for easy loading of heavy components','Very large chamber capacity for big fabricated structures','Electrical and gas-fired versions available','Suitable for components measured in tonnes'],apps:'Heavy casting and forging heat treatment, large fabricated structure stress relieving'},
+  {id:'conveyor-oven',cat:'conveyor',num:'6.1',catLabel:'Conveyorised Ovens',name:'Standard Conveyorised Oven',desc:'Continuous belt conveyor oven — components loaded at one end, processed through heated tunnel, discharged at other end. High volume, uninterrupted production.',temp:'Ambient – 600°C',modes:'Electrical | Gas | IR | UV',features:['Variable speed conveyor for process time adjustment','Uniform temperature throughout heating tunnel','Various tunnel lengths and widths','MS/SS conveyor belt or chain as per application'],apps:'Paint baking, powder coating curing, electrode baking, food processing, rubber curing, industrial drying'},
+  {id:'monorail-oven',cat:'conveyor',num:'6.4',catLabel:'Conveyorised Ovens',name:'Overhead Conveyor (Monorail) Oven',desc:'Components suspended from overhead monorail conveyor and transported through heating tunnel hanging from hooks — ideal for painting lines.',temp:'Ambient – 300°C',modes:'Electrical | Gas',features:['Overhead monorail conveyor system','Components hang freely for all-around heating access','Ideal for integration with spray painting booths','Variable speed drive','Available in straight, L-shape and U-shape layouts'],apps:'Automobile painting lines, industrial component coating, appliance painting, automated painting plants'},
+  {id:'gas-oven',cat:'gas',num:'7.1',catLabel:'Gas Fired Ovens',name:'Standard Gas Fired Oven',desc:'Industrial batch oven heated by gas burner system. Available for LPG, PNG or Natural Gas. Faster heat-up and lower operating costs for larger chambers.',temp:'Ambient – 600°C',modes:'LPG | PNG | Natural Gas',features:['High-efficiency gas burner with flame failure safety device','Forced air circulation for uniform temperature','Digital temperature controller with gas valve control','Fast heat-up compared to electrical for large chambers'],apps:'General industrial drying, paint baking, powder coating, electrode baking, heat treatment'},
+  {id:'large-gas-oven',cat:'gas',num:'7.4',catLabel:'Gas Fired Ovens',name:'Large Gas Fired Industrial Oven',desc:'Custom-built large gas-fired ovens for heavy industrial applications requiring large chamber volumes and high heating capacity.',temp:'Ambient – 600°C',modes:'LPG | PNG | Natural Gas',features:['Very large chamber capacity','High-capacity gas burner system','Multiple burner zones for uniform heating','Suitable for very heavy and large components'],apps:'Large structure heat treatment, pipe coating curing, heavy engineering, foundry applications'},
+  {id:'water-wash-booth',cat:'painting',num:'8.1',catLabel:'Painting Booths',name:'Water Wash Spray Painting Booth',desc:'Compact water wash spray painting booth. Effective overspray collection, clean working environment. Available in Mini, Standard and Bench Type.',temp:'N/A',modes:'N/A',features:['Water wash overspray collection system','Effective removal of paint particles','Made from CRCA sheet — compact and foldable','Special corrosion coating on inner surfaces','Mini: 600W×750D×860H, Standard: 900W×900D×1160H, Bench: 1500W×1200D×1160H'],apps:'Air conditioners, scooters, cycle parts, motors, fans, automobile parts, control panels, non-stick cookware'},
+  {id:'full-depth-booth',cat:'painting',num:'8.2',catLabel:'Painting Booths',name:'Full Depth Water Wash Painting Booth',desc:'Full-depth water wash booth for medium to large-scale operations. 6 standard widths from 1200mm to 4500mm.',temp:'N/A',modes:'N/A',features:['Full-depth water wash with eliminator baffle','Models: AMI-FD-1200 (3HP) through AMI-FD-4500 (15HP)','Pressurised booth options available','Custom sizes beyond standard range'],apps:'Industrial components, automobile parts, large structures, furniture, heavy engineering'},
+  {id:'powder-booth',cat:'painting',num:'8.3',catLabel:'Painting Booths',name:'Powder Recovery Booth (Cyclone Type)',desc:'Highly efficient powder coating booth with cyclone-type powder recovery. Up to 97% powder recovery efficiency.',temp:'N/A',modes:'N/A',features:['Up to 97% powder recovery efficiency','Faster colour changes with split cyclone design','Completely maintenance-free operation','Low power consumption','Models: AMI 900 (3HP) through AMI 2000 (5HP)'],apps:'Any powder coating operation — maximum powder utilisation and minimum waste'},
+  {id:'turnkey-liquid',cat:'turnkey',num:'9.1',catLabel:'Turnkey Plants',name:'Liquid Painting Turnkey Plant',desc:'Complete automated liquid painting line — pre-treatment, spray painting booth, paint baking oven and conveyor system — all integrated.',temp:'Custom',modes:'Electrical | Gas',features:['Pre-treatment system (degreasing, phosphating, rinsing)','Conveyorised spray painting booth','Paint baking oven (batch or conveyorised)','Overhead monorail conveyor system','Full PLC automation and control panel','3D layout drawings and technical documentation'],apps:'Automobile parts, industrial components, consumer durables, appliances, metal furniture'},
+  {id:'turnkey-powder',cat:'turnkey',num:'9.2',catLabel:'Turnkey Plants',name:'Powder Coating Turnkey Plant',desc:'Complete automated powder coating line including pre-treatment, powder coating booth, powder recovery and curing oven — all integrated and automated.',temp:'Custom',modes:'Electrical | Gas',features:['Pre-treatment system','Powder coating booth with cyclone recovery','Powder curing oven','Overhead conveyor system','Complete automation and control'],apps:'Any high-volume powder coating operation'},
+  {id:'turnkey-teflon',cat:'turnkey',num:'9.3',catLabel:'Turnkey Plants',name:'Teflon (PTFE) Coating Turnkey Plant',desc:'Specialised turnkey line for Teflon coating of cookware, industrial components and precision parts.',temp:'Custom',modes:'Electrical',features:['Pre-treatment line','Spray application system','Sintering oven','Conveyor system and full automation'],apps:'Non-stick cookware, industrial rollers, precision engineering components'},
+  {id:'fabrication',cat:'fabrication',num:'10',catLabel:'Fabrication Services',name:'Heavy Fabrication & Laser Cutting',desc:'AMI is not just an oven manufacturer — we are a complete heavy engineering solutions provider with full in-house fabrication, laser cutting and assembly capabilities.',temp:'N/A',modes:'N/A',features:['Heavy MS and SS structural fabrication','Precision sheet metal fabrication','High precision laser cutting of all metals','Complete assembly of ovens, plants and systems','CNC operations and insulation work','Full turnkey project execution'],apps:'Any custom industrial fabrication, engineering jobs as per client drawings, turnkey project execution'},
+];
+
+const APPLICATIONS = [
+  {num:'01',title:'Heat Treatment',items:['Hardening & Tempering — Box Furnace','Annealing — Vertical Opening Annealing Furnace (Inert Atmosphere)','Stress Relieving — Batch Type Oven / Box Furnace','Normalizing — Box Furnace / High Temperature Furnace','Pre-heating before Welding — Batch Type Oven','Post-Weld Heat Treatment (PWHT) — Batch Type / Gas-Fired Oven','Solution Treatment & Aging — High Temperature Furnace']},
+  {num:'02',title:'Paint, Coating & Finishing',items:['Powder Coating Curing — Powder Coating Oven','Liquid Paint Baking — Paint Baking Oven','Varnish Baking — Varnish Baking Oven','Teflon / PTFE Coating — Batch Type Industrial Oven','Epoxy & Primer Coat Curing — Paint Baking / Conveyorised Oven','Non-Stick Cookware Coating — Batch Type Industrial Oven','Spray Painting — Spray Painting Booth (Water Wash Type)','Powder Coating Spray — Powder Recovery Booth (Cyclone Type)','Full Automated Paint & Bake Line — Turnkey Conveyorised Plant']},
+  {num:'03',title:'Electrode & Flux',items:['Welding Electrode Baking — Electrode Baking Oven','Electrode Drying & Reconditioning — Electrode Baking Oven','Flux Drying — Flux Drying Oven','Flux Reconditioning — Flux Drying Oven','Low Hydrogen Electrode Baking — Electrode Baking Oven','Stainless Steel Electrode Baking — Electrode Baking Oven (SS)']},
+  {num:'04',title:'Industrial Drying',items:['General Purpose Industrial Drying — Batch Type / Tray Dryer','PVC Granules Drying — Batch Type / Tray Dryer','Rubber Compound Drying — Batch Type Industrial Oven','Chemical Powder Drying — Tray Dryer','Sand Core & Mould Drying — Batch Type / Gas Fired Oven','Silica Gel Regeneration — Tray Dryer','Fibre & Textile Drying — Tray Dryer / Conveyorised Oven','PCB Drying — Laboratory Oven / Batch Type Oven','Filter & Gasket Drying — Tray Dryer / Batch Type Oven']},
+  {num:'05',title:'Food, Spices & Dehydration',items:['Dry Fruit Drying — Tray Dryer (4 Tray to 192 Tray)','Spices Drying — Tray Dryer','Food Product Dehydration — Tray Dryer / Conveyorised Oven','Bakery & Confectionery Baking — 3 Deck Bakery Oven / Batch Type','Vegetable & Herb Drying — Tray Dryer','Grain & Seed Drying — Tray Dryer']},
+  {num:'06',title:'Pharmaceutical & Laboratory',items:['Drug & API Drying — Tray Dryer (SS Interior)','Granule Drying — Tray Dryer','Glassware Pre-heating — Laboratory Oven','R&D & Sample Testing — Laboratory Oven / Vacuum Oven','Stability Studies — Laboratory Oven','Precision Heating & Testing — Vacuum Oven']},
+  {num:'07',title:'Surface Treatment & Electroplating',items:['Pre-treatment Drying before Plating — Batch Type Oven','Post Plating Baking (Hydrogen Embrittlement Relief) — Batch Type Oven','Phosphating & Passivation Drying — Batch Type Oven','Anodizing Process Support — Batch Type Oven']},
+  {num:'08',title:'Automobile & Engineering',items:['Paint Baking on Auto Body & Parts — Paint Baking / Conveyorised Oven','Rubber Gasket & Seal Curing — Batch Type Industrial Oven','Automotive Component Preheating — Batch Type / Gas-Fired Oven','Underbody Coating Curing — Conveyorised Oven','Gear & Shaft Heat Treatment — Box Furnace / High Temperature Furnace','Bearing Preheating & Shrink Fitting — Batch Type Industrial Oven','Full Automated Auto Paint Line — Turnkey Conveyorised Painting Plant']},
+  {num:'09',title:'Electrical & Energy',items:['Motor Winding Varnish Baking — Varnish Baking Oven','Transformer Coil Drying — Batch Type Industrial Oven','Generator Winding Treatment — Varnish Baking Oven','Windmill Component Varnish Baking — Varnish Baking Oven (Custom Built)','Capacitor & Coil Drying — Tray Dryer / Batch Type Oven','Solar Panel Component Processing — Batch Type Industrial Oven','Bus Bar & Panel Drying — Batch Type Industrial Oven']},
+  {num:'10',title:'Glass, Ceramic & Sanitary Ware',items:['Glass Annealing — High Temperature Furnace / Gas-Fired Oven','Ceramic Glazing & Firing Support — High Temperature Furnace','Sanitary Ware Coating Curing — Batch Type Industrial Oven','Perfume Bottle & Decorative Glass Processing — High Temperature Furnace','Enamel Coating Firing — High Temperature Furnace']},
+  {num:'11',title:'Oil, Gas & Pipeline',items:['Pipeline Preheating before Welding — Gas-Fired / Batch Type Oven','Electrode & Flux Drying for Field Welding — Electrode / Flux Drying Oven','Anti-Corrosion Coating Curing on Pipes — Batch Type Industrial Oven','Valve & Fitting Stress Relief — Box Furnace / Batch Type Oven','Epoxy Lining Curing — Batch Type Industrial Oven']},
+  {num:'12',title:'Foundry',items:['Sand Core & Mould Drying — Gas-Fired / Batch Type Oven','Die Preheating — Gas-Fired / Batch Type Oven','Heavy Casting Stress Relieving — Box Furnace / Gas-Fired Oven','Pattern Drying — Batch Type Industrial Oven']},
+  {num:'13',title:'Heavy Engineering, Fabrication & Assembly',items:['Heavy Fabrication Jobs — Custom Fabricated Structures as per Drawings','Sheet Metal Fabrication — Precision Chambers, Frames & Components','Laser Cutting Jobs — High Precision Laser Cutting as per Client Drawings','Assembly Services — Complete Assembly of Ovens, Plants & Systems','Turnkey Project Execution — End-to-End Design, Fabrication, Installation & Commissioning']},
+];
+
+const CLIENTS = ['Indian Airlines','Air India','Camlin Kokuyo','EWAC Alloys','Godrej & Boyce Mfg','Godrej Soaps','Godrej Interio Furniture','Godrej & GE','ICI India Ltd','Larsen & Toubro','Mahindra & Mahindra','Nestle','ACC Cement','Indian Oil','Reliance Industries','Jindal SAW Ltd','JSW India','Superon Schwiss Technik India','Blue Star','Welspun','Cello Plastics','Asian Paints','VIP','GE APAR','Reliance Petro Chemical','Hawkins','Orange','Stanvac','GEW Radiators','Pidilite Industries','Kohler India','Thermax','Enercon','Crompton Greaves','Birla Group','ISGEC','Kanthal','ABB','GMM Coatings','JSL Mogar','Kirloskar','DuPont','Emerson Process','Ratnamani Metals & Tubes','DNH','WIKA','Waree','Syndicate Auto','Banco','Raychem RPG','Dabur Titan','Technova Imaging Systems','Lumens','Thermax Group','Steel Cast Ltd','Ador','Sucheta Metals','Siemens','Gala Industries Ltd','Stanvac Chemicals','Bullows Paints Equipment','Aspee Agro Equipments','Jaslok Hospital & Research Centre','Prism Surface Coatings','Raajratna Electrodes','3M Products Ltd','Rishabh Instruments'];
+
+/* ─── INIT ─── */
+function init(){
+  buildProducts('all');
+  buildApplications();
+  buildClients();
+}
+
+/* ─── PRODUCTS ─── */
+let currentFilter='all';
+function buildProducts(filter){
+  currentFilter=filter;
+  const list=document.getElementById('productsList');
+  const filtered=filter==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===filter);
+  list.innerHTML=filtered.map((p,i)=>`
+    <div class="product-row" onclick="openProduct('${p.id}')">
+      <div class="product-row-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="product-row-info">
+        <div class="product-row-cat">${p.catLabel}</div>
+        <div class="product-row-name">${p.name}</div>
+        <div class="product-row-desc">${p.desc}</div>
+      </div>
+      <div class="product-row-specs">
+        <div class="product-spec"><strong>${p.temp}</strong>Temperature</div>
+        <div class="product-spec" style="margin-top:8px;font-size:11px;color:var(--grey);line-height:1.5;">${p.modes}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(filter, btn){
+  currentFilter=filter;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  buildProducts(filter);
+}
+
+/* ─── PRODUCT DETAIL ─── */
+const PRODUCT_IMAGES={
+  'batch-oven':'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80',
+  'walk-in-oven':'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+  'electrode-oven':'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+  'furnace':'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+  'painting-booth':'https://images.unsplash.com/photo-1518331647614-7a1f04cd34cf?w=800&q=80',
+  'conveyor-oven':'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=800&q=80',
+};
+
+function openProduct(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p)return;
+  const img=PRODUCT_IMAGES[id]||'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80';
+  document.getElementById('pdContent').innerHTML=`
+    <img src="${img}" style="width:100%;height:200px;object-fit:cover;filter:grayscale(30%) brightness(0.7);">
+    <div class="pd-cat">${p.catLabel} · ${p.num}</div>
+    <div class="pd-title">${p.name}</div>
+    <div class="pd-body">${p.desc}</div>
+    <div class="pd-specs-title">Specifications</div>
+    <div class="pd-spec-row"><span class="pd-spec-key">Temperature Range</span><span class="pd-spec-val">${p.temp}</span></div>
+    <div class="pd-spec-row"><span class="pd-spec-key">Heating Modes</span><span class="pd-spec-val">${p.modes}</span></div>
+    <div class="pd-specs-title">Key Features</div>
+    <ul class="pd-features-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    <div class="pd-specs-title">Applications</div>
+    <div class="pd-body">${p.apps}</div>
+    <div style="margin-top:32px;">
+      <button class="btn-primary" style="width:100%;" onclick="showPage('contact')">Enquire About This Product →</button>
+    </div>
+  `;
+  document.getElementById('productDetail').classList.add('open');
+  document.getElementById('pdOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeProductDetail(){
+  document.getElementById('productDetail').classList.remove('open');
+  document.getElementById('pdOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ─── APPLICATIONS ─── */
+function buildApplications(){
+  const acc=document.getElementById('applicationsAccordion');
+  acc.innerHTML=APPLICATIONS.map(a=>`
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this.parentElement)">
+        <div class="acc-title">
+          <div class="acc-num">${a.num}</div>
+          ${a.title}
+        </div>
+        <div class="acc-icon">+</div>
+      </div>
+      <div class="acc-body">
+        <div class="acc-tags">${a.items.map(i=>`<div class="acc-tag">${i}</div>`).join('')}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleAcc(item){
+  item.classList.toggle('open');
+}
+
+/* ─── CLIENTS ─── */
+function buildClients(){
+  const grid=document.getElementById('clientsGrid');
+  grid.innerHTML=CLIENTS.map((c,i)=>`
+    <div style="background:var(--charcoal);padding:24px 20px;border-left:${i%4===0?'3px solid var(--red)':'0'};transition:all 0.2s;"
+      onmouseenter="this.style.background='var(--grey-dark)';this.style.borderLeft='3px solid var(--red)'"
+      onmouseleave="this.style.background='var(--charcoal)';this.style.borderLeft='${i%4===0?'3px solid var(--red)':'0'}'">
+      <div style="font-family:var(--font-head);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;color:var(--white);">${c}</div>
+    </div>
+  `).join('');
+}
+
+/* ─── PAGE NAVIGATION ─── */
+function showPage(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+pageId).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
+  // close mobile nav
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+function scrollToSec(id){
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  },100);
+}
+
+/* ─── ACCORDION / FAQ ─── */
+function toggleFaq(el){
+  const item=el.parentElement;
+  item.classList.toggle('open');
+}
+
+/* ─── MOBILE NAV ─── */
+function toggleMobileNav(){
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+/* ─── SCROLL PROGRESS ─── */
+window.addEventListener('scroll',()=>{
+  const scrolled=window.scrollY;
+  const total=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('scrollBar').style.width=(scrolled/total*100)+'%';
+});
+
+/* ─── FADE IN OBSERVER ─── */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+/* ─── FORM ─── */
+function submitForm(btn){
+  btn.textContent='SENDING...';
+  btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='✓ ENQUIRY SENT — WE\'LL RESPOND WITHIN 24 HOURS';
+    btn.style.background='#2a7a2a';
+  },1500);
+}
+
+init();
+</script>
+</body>
+</html>
